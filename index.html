@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Data donation prototypes</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+  <div class="demo-banner">Static demo of the participant side. Nothing you select or type on these pages is sent anywhere; it stays in this browser tab.</div>
+  <main class="demo-main">
+    <h1>ChatGPT data donation: two participant flows</h1>
+    <p>These pages show what a participant would see in two open-source data donation tools, Port and DDM, each set up
+      to read ChatGPT exports. Study texts are placeholders written as <code>[things to be filled: ...]</code>.
+      Everything runs in your browser.</p>
+
+    <h2>1. Download a test file</h2>
+    <p>A synthetic ChatGPT export with made-up conversations (no real data):
+      <a href="sample/synthetic_chatgpt_export_sharded.zip" download>synthetic_chatgpt_export_sharded.zip</a>
+      (the newer layout, <code>conversations-000.json</code>) or
+      <a href="sample/synthetic_chatgpt_export_legacy.zip" download>synthetic_chatgpt_export_legacy.zip</a>
+      (the older layout, <code>conversations.json</code>). Keep it zipped.</p>
+    <p class="demo-muted">A real export from ChatGPT (Settings &rarr; Data controls &rarr; Export data) also works. It is read
+      inside this browser tab and is not uploaded.</p>
+
+    <h2>2. Try each flow</h2>
+    <div class="demo-cards">
+      <div class="demo-card">
+        <h3>Port</h3>
+        <p class="demo-muted">By the D3I project and Eyra (Netherlands). In a study it runs inside Eyra's Next platform.</p>
+        <ol>
+          <li>Study page and consent (in a real study this page comes from Next)</li>
+          <li>Select the ZIP; a Python script runs in your browser and extracts the messages</li>
+          <li>Review table: search it, delete rows, then choose to share or not</li>
+          <li>End page, followed by the payload the server would have received</li>
+        </ol>
+        <a class="demo-btn demo-go" href="port/">Open the Port demo</a>
+      </div>
+      <div class="demo-card">
+        <h3>DDM (Data Donation Module)</h3>
+        <p class="demo-muted">By the University of Zurich. One application: consent, upload, questionnaire, researcher interface.</p>
+        <ol>
+          <li>Briefing page with a consent question</li>
+          <li>Select the ZIP; DDM's configured rules extract the messages in your browser</li>
+          <li>Review, grouped by conversation: remove single messages or whole conversations</li>
+          <li>Short questionnaire, which can quote the donation (here: the number of messages)</li>
+          <li>End page, followed by the payload the server would have received</li>
+        </ol>
+        <p class="demo-muted">Researcher side: DDM's own researcher interface for this project, as a read-only snapshot
+          with two synthetic participants. Settings, extraction rules and questionnaire can be opened but not saved; the
+          two Data Center downloads work.</p>
+        <p class="demo-actions"><a class="demo-btn" href="ddm/">Open the DDM demo</a>
+          <a class="demo-btn secondary" href="ddm-admin/projects/index.html">DDM researcher side</a></p>
+      </div>
+    </div>
+
+    <h2>What is different from a real study</h2>
+    <div class="demo-table-scroll">
+      <table>
+        <tr><th></th><th>This demo</th><th>A real deployment</th></tr>
+        <tr><td>Clicking "donate" / "share"</td><td>The data is kept in this tab and shown on the last page, with a download button</td><td>The remaining rows are sent to the study's server (Port: to Next; DDM: stored encrypted in its database)</td></tr>
+        <tr><td>Researcher side</td><td>DDM: a read-only snapshot of its researcher interface. Port: not included (it comes from Eyra's Next platform)</td><td>Login, study set-up, data download, link to the survey through the participant ID</td></tr>
+        <tr><td>Participant ID</td><td>Add <code>?pid=ABC123</code> to the Port or DDM address to see it passed through</td><td>Passed from the survey or panel link in the same way</td></tr>
+        <tr><td>Texts</td><td>Placeholders</td><td>Consent, instructions and debriefing approved by the IRB</td></tr>
+      </table>
+    </div>
+
+    <h2>Versions and sources</h2>
+    <p class="demo-muted">Port: <code>d3i-infra/data-donation-task</code> at commit <code>f75c41a</code> (AGPL-3.0), with one change so that
+      exports whose file is named <code>conversations.json</code> are read. DDM: <code>django-ddm</code> 3.0.0b4 (GPL-3.0), with one
+      fix in the uploader's review step. Licenses, the upstream sources and both changes are listed in
+      <a href="licenses/">licenses/</a>.</p>
+  </main>
+</body>
+</html>

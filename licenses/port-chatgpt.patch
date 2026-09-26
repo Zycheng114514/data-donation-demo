@@ -1,0 +1,23 @@
+diff --git a/packages/python/port/platforms/chatgpt.py b/packages/python/port/platforms/chatgpt.py
+index 420e774..26bcb69 100644
+--- a/packages/python/port/platforms/chatgpt.py
++++ b/packages/python/port/platforms/chatgpt.py
+@@ -58,6 +58,7 @@ DDP_CATEGORIES = [
+         known_files=[
+             "chat.html",
+             "conversations-000.json",
++            "conversations.json",
+             "message_feedback.json",
+             "model_comparisons.json",
+             "user.json"
+@@ -129,7 +130,9 @@ def conversations_to_df(reader: ZipArchiveReader, errors: Counter) -> pd.DataFra
+           ]
+         }
+     """
+-    results = reader.json_all(r"conversations-.*\.json")
++    # Prototype change: also accept the older single-file layout (conversations.json).
++    # Anchored so that shared_conversations.json is not picked up.
++    results = reader.json_all(r"(^|/)conversations(-\d+)?\.json$")
+     if not results:
+         return pd.DataFrame()
+     conversations = [conv for result in results for conv in result.data]

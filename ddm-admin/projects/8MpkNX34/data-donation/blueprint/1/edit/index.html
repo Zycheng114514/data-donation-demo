@@ -1,0 +1,2589 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Blueprint Settings</title>
+
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../index.html">Data Donation</a><i class="bi bi-chevron-right"></i>
+
+  <span>Edit Blueprint</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Blueprint Settings</h1>
+      <div class="h1-sub"></div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  
+
+  
+
+  
+  <div id="project-details" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>General Settings</h2>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_name">Name</label>
+    
+    
+    
+      <span class="helptext">For internal use (e.g., &quot;watch_history&quot;)</span>
+    
+    <input type="text" name="name" value="ChatGPT conversations" maxlength="250" required aria-describedby="id_name_helptext" id="id_name">
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_file_uploader">Associated File Uploader</label>
+    
+    
+    
+      <span class="helptext">The File Uploader through which the related file will be uploaded</span>
+    
+    <select name="file_uploader" aria-describedby="id_file_uploader_helptext" id="id_file_uploader">
+  <option value="">---------</option>
+
+  <option value="1" selected>ChatGPT export (zip) (zip file)</option>
+
+</select>
+    
+      
+    
+  </div>
+
+
+  </div>
+</div>
+
+  
+  <div id="project-details" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Display Settings</h2>
+      <p>Configure what participants see on the donation interface</p>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_display_name">Display name</label>
+    
+    
+    
+      <span class="helptext">Title of the Blueprint shown to participants (e.g., &quot;Watch History&quot;).</span>
+    
+    <input type="text" name="display_name" value="Your conversations with ChatGPT" maxlength="250" required aria-describedby="id_display_name_helptext" id="id_display_name">
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_description">Description</label>
+    
+    
+    
+      <span class="helptext">Explains to participants what data is extracted (e.g., &quot;Videos you watched and when&quot;)</span>
+    
+    <textarea name="description" cols="40" rows="3" aria-describedby="id_description_helptext" id="id_description">
+For every message: conversation title and ID, who wrote it (you or ChatGPT), the text, the model, and the time. [things to be filled: adjust once the study decides which fields it needs]</textarea>
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_display_position">Display order</label>
+    
+    
+    
+      <span class="helptext">Controls display order in Blueprint list. Lower = first.</span>
+    
+    <input type="number" name="display_position" value="1" min="0" required aria-describedby="id_display_position_helptext" id="id_display_position">
+    
+      
+    
+  </div>
+
+
+  </div>
+</div>
+
+  <h5 class="mt-5 fw-bold mb-3 fc-grey">Data Extraction Configuration</h5>
+  <div class="row">
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-1-circle-fill"></i></div>
+      <div class="data-flow-border-bottom"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="file-identification-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>File Identification</h2>
+    </div>
+
+    <div id="file-identification-info-zip">
+
+      <p class="mb-3">
+        Files are identified by their path in the zip file.
+        For example, if the file is <code>some_data.json</code> at the root of the zip, enter <code>some_data.json</code> as the file path.
+      </p>
+
+      <p>
+        You can use regex patterns or define multiple paths, which are tried in priority order
+        (lower numbers first; useful if the filename may not always be the same).
+      </p>
+
+      <div class="mt-3" id="file-path-formset-section">
+        <input type="hidden" name="blueprintfilepath_set-TOTAL_FORMS" value="1" id="id_blueprintfilepath_set-TOTAL_FORMS"><input type="hidden" name="blueprintfilepath_set-INITIAL_FORMS" value="1" id="id_blueprintfilepath_set-INITIAL_FORMS"><input type="hidden" name="blueprintfilepath_set-MIN_NUM_FORMS" value="0" id="id_blueprintfilepath_set-MIN_NUM_FORMS"><input type="hidden" name="blueprintfilepath_set-MAX_NUM_FORMS" value="1000" id="id_blueprintfilepath_set-MAX_NUM_FORMS">
+
+
+
+<div>
+  <div id="file-path-formset-container" class="table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Filepath</th>
+        <th>Is regex</th>
+        <th>Priority</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+
+      <tbody id="file-path-table-body">
+      
+        <tr>
+  <td>
+    <textarea name="blueprintfilepath_set-0-path" cols="60" rows="1" id="id_blueprintfilepath_set-0-path">
+(^|/)conversations(-\d+)?\.json$</textarea>
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-0-is_regex" id="id_blueprintfilepath_set-0-is_regex" checked>
+  </td>
+  <td>
+    <input type="number" name="blueprintfilepath_set-0-priority" value="1" id="id_blueprintfilepath_set-0-priority">
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-0-DELETE" id="id_blueprintfilepath_set-0-DELETE">
+    
+      <input type="hidden" name="blueprintfilepath_set-0-id" value="1" id="id_blueprintfilepath_set-0-id">
+    
+      <input type="hidden" name="blueprintfilepath_set-0-blueprint" value="1" id="id_blueprintfilepath_set-0-blueprint">
+    
+  </td>
+</tr>
+
+      
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+
+<div class="d-none">
+  <table>
+    <tbody id="empty-file-path-form">
+    <tr>
+  <td>
+    <textarea name="blueprintfilepath_set-__prefix__-path" cols="60" rows="1" id="id_blueprintfilepath_set-__prefix__-path">
+</textarea>
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-__prefix__-is_regex" id="id_blueprintfilepath_set-__prefix__-is_regex">
+  </td>
+  <td>
+    <input type="number" name="blueprintfilepath_set-__prefix__-priority" value="1" id="id_blueprintfilepath_set-__prefix__-priority">
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-__prefix__-DELETE" id="id_blueprintfilepath_set-__prefix__-DELETE">
+    
+      <input type="hidden" name="blueprintfilepath_set-__prefix__-id" id="id_blueprintfilepath_set-__prefix__-id">
+    
+      <input type="hidden" name="blueprintfilepath_set-__prefix__-blueprint" value="1" id="id_blueprintfilepath_set-__prefix__-blueprint">
+    
+  </td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+<button type="button" class="ddm-btn ddm-btn-inverted" id="add-file-path-form">Add File Path</button>
+
+      </div>
+
+      <div class="mt-5">
+        <div class="ddm-info-collapsible mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-file-path-advanced">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-file-path-advanced"
+            aria-expanded="false"
+            aria-controls="info-collapsible-file-path-advanced"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;More on how file paths are evaluated
+    </button>
+  </div>
+
+  <div id="info-collapsible-file-path-advanced"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-file-path-advanced"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p class="mt-0">
+  The uploader extracts all file paths from the uploaded zip and tries to match them against your specified path(s).
+</p>
+<p>
+  Matching works from the right: <code>data.json</code> will match both
+  <code>root/data.json</code> and <code>root/some-folder/data.json</code>, selecting the first match.
+  Be specific enough to avoid unintended matches.
+</p>
+<p>
+  If a match is found, the uploader validates the file content and extracts the data.
+</p>
+<p>
+  If no match is found, it tries the next path you defined, or displays an information message to the participant
+  that the file could not be found in the uploaded zip-file.
+</p>
+
+<p class="fw-bold mb-1">Regex matching</p>
+
+<p class="mt-0">
+  Mark a file path as <code>is regex</code> to use regex patterns. For example,
+  <code>/specific folder/.*\.json$</code> matches both <code>/specific folder/my_data.json</code>
+  and <code>/specific folder/meine_daten.json</code> — useful when filenames vary based on account settings.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+      </div>
+
+    </div>
+
+    <div id="file-identification-info-single-file">
+      <p>For single file uploads, the participant will upload a single file – file identification is therefore not necessary.</p>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-2-circle-fill"></i></div>
+      <div class="data-flow-border-bottom"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="file-validation-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>File Validation</h2>
+      <p>Configure how an identified file is validated</p>
+    </div>
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_exp_file_format">Expected file format</label>
+    
+    
+    
+    <select name="exp_file_format" id="id_exp_file_format">
+  <option value="json" selected>JSON file</option>
+
+  <option value="csv">CSV file</option>
+
+  <option value="txt">TXT file</option>
+
+</select>
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_csv_delimiter">Csv delimiter</label>
+    
+    
+    
+      <span class="helptext">The character that separates values in the CSV (e.g., <code>,</code> <code>;</code> or <code>\t</code> for tab). If left empty, the delimiter is inferred automatically.</span>
+    
+    <input type="text" name="csv_delimiter" maxlength="10" aria-describedby="id_csv_delimiter_helptext" id="id_csv_delimiter">
+    
+      
+    
+  </div>
+
+
+
+    <div id="txt-parser-fields" class="mt-1 row g-4">
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_record_separator">Record/entry separator</label>
+    
+    
+    
+      <span class="helptext">The character(s) that separate one entry from the next in the file &mdash; for example, a blank line or a single line break. Use <code>\n</code> for a line break, or <code>\n\n</code> for a blank line between entries.</span>
+    
+    <input type="text" name="txt_record_separator" value="
+
+" maxlength="20" aria-describedby="id_txt_record_separator_helptext" id="id_txt_record_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_field_separator">Field separator</label>
+    
+    
+    
+      <span class="helptext">The character sequence that separates individual fields within a single record (e.g., a line break if each field is on its own line). Use <code>\n</code> for a line break.</span>
+    
+    <input type="text" name="txt_field_separator" value="
+" maxlength="20" aria-describedby="id_txt_field_separator_helptext" id="id_txt_field_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_kv_separator">Key-value separator</label>
+    
+    
+    
+      <span class="helptext">The character that separates a field's name from its value within a line (e.g., <code>:</code> in <code>Name: John</code>, or <code>=</code> in <code>name=John</code>).</span>
+    
+    <input type="text" name="txt_kv_separator" value=":" maxlength="10" aria-describedby="id_txt_kv_separator_helptext" id="id_txt_kv_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_skip_header_lines">Skip header lines</label>
+    
+    
+    
+      <span class="helptext">How many lines to skip at the beginning of the TXT-file.</span>
+    
+    <input type="number" name="txt_skip_header_lines" value="0" min="0" aria-describedby="id_txt_skip_header_lines_helptext" id="id_txt_skip_header_lines">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_skip_footer_lines">Skip footer lines</label>
+    
+    
+    
+      <span class="helptext">How many lines to skip at the end of the TXT-file.</span>
+    
+    <input type="number" name="txt_skip_footer_lines" value="0" min="0" aria-describedby="id_txt_skip_footer_lines_helptext" id="id_txt_skip_footer_lines">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-6 mt-0">
+      </div>
+
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_ignore_blank_lines">Ignore blank lines</label>
+    
+    
+    
+    <input type="checkbox" name="txt_ignore_blank_lines" id="id_txt_ignore_blank_lines" checked>
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_trim_whitespace">Trim whitespace</label>
+    
+    
+    
+      <span class="helptext">Whether to trim whitespace around records/entries and key-value pairs.</span>
+    
+    <input type="checkbox" name="txt_trim_whitespace" aria-describedby="id_txt_trim_whitespace_helptext" id="id_txt_trim_whitespace" checked>
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-6 mt-0">
+      </div>
+    </div>
+
+    <div>
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_expected_fields">Expected fields</label>
+    
+    
+    
+      <span class="helptext">Comma-separated, in double quotes: <code>"Field A", "Field B"</code></span>
+    
+    <textarea name="expected_fields" cols="40" rows="1" required aria-describedby="id_expected_fields_helptext" id="id_expected_fields">
+&quot;title&quot;, &quot;mapping&quot;</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_expected_fields_regex_matching"
+        name="expected_fields_regex_matching"
+        
+    />
+    <label class="form-check-label" for="id_expected_fields_regex_matching">
+      Expected fields use regex matching
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+    </div>
+
+    
+      
+      <div id="nested-expected-fields">
+        <hr class="mb-4 mt-0" />
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_nested_expected_fields">Nested expected fields</label>
+    
+    
+    
+      <span class="helptext">Comma-separated, in double quotes: <code>"Field A", "Field B"</code>. Only used if a Nested loop path is configured (JSON format).</span>
+    
+    <textarea name="nested_expected_fields" cols="40" rows="1" aria-describedby="id_nested_expected_fields_helptext" id="id_nested_expected_fields">
+&quot;message&quot;</textarea>
+    
+      
+    
+  </div>
+
+
+        
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_nested_expected_fields_regex_matching"
+        name="nested_expected_fields_regex_matching"
+        
+    />
+    <label class="form-check-label" for="id_nested_expected_fields_regex_matching">
+      Nested expected fields use regex matching
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+      </div>
+    
+
+    <div>
+      <div class="ddm-info-collapsible mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-filevalidation">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-filevalidation"
+            aria-expanded="false"
+            aria-controls="info-collapsible-filevalidation"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;How the file validation works
+    </button>
+  </div>
+
+  <div id="info-collapsible-filevalidation"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-filevalidation"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p class="mt-0">
+  When a file has been identified, it is validated in order:
+</p>
+<ol class="mb-2 mt-2">
+  <li><strong>Format correct</strong>: The file matches the expected file format.</li>
+  <li><strong>Fields present</strong>: The file contains all expected fields.</li>
+</ol>
+<p class="mt-0">
+  If any step fails, no data is extracted and the participant sees an error explaining what went wrong.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-3-circle-fill"></i></div>
+      <div class="data-flow-border-bottom border-0"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="data-extraction-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Data Extraction</h2>
+      <p>Configure what data will be collected</p>
+    </div>
+
+    <div id="json-parser-fields" class="mt-1">
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_json_extraction_root">Extraction Root</label>
+    
+    
+    
+      <span class="helptext">Optional: if the data you want isn't at the top level of the file, enter the field name that contains it here. Leave empty to extract straight from the top level. To reach a field nested inside another field, separate the names with a dot, e.g. <code>friends.real_friends</code>.</span>
+    
+    <input type="text" name="json_extraction_root" maxlength="200" aria-describedby="id_json_extraction_root_helptext" id="id_json_extraction_root">
+    
+      
+    
+  </div>
+
+
+
+      <div>
+          <div class="ddm-info-collapsible white mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-advanced-bp-settings">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-advanced-bp-settings"
+            aria-expanded="false"
+            aria-controls="info-collapsible-advanced-bp-settings"
+    >
+      Advanced Settings
+    </button>
+  </div>
+
+  <div id="info-collapsible-advanced-bp-settings"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-advanced-bp-settings"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_json_array_join_separator">Array join separator</label>
+    
+    
+    
+      <span class="helptext">If an extracted field contains several separate values (e.g. multiple lines of a message) instead of a single value, they are combined into one text using this separator. Use <code>\n</code> to join them with a line break.</span>
+    
+    <input type="text" name="json_array_join_separator" value="\n" maxlength="20" aria-describedby="id_json_array_join_separator_helptext" id="id_json_array_join_separator">
+    
+      
+    
+  </div>
+
+
+
+
+
+      
+    </div>
+  </div>
+
+</div>
+
+      </div>
+
+      <div>
+          <div class="ddm-info-collapsible white mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-nested-settings">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-nested-settings"
+            aria-expanded="false"
+            aria-controls="info-collapsible-nested-settings"
+    >
+      Nested Extraction Settings
+    </button>
+  </div>
+
+  <div id="info-collapsible-nested-settings"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-nested-settings"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_json_nested_loop_path">Nested loop path</label>
+    
+    
+    
+      <span class="helptext">Optional: use this if each item contains a list (or a named set) of related sub-items that you also want to extract as their own rows &mdash; for example, if each conversation contains a set of messages. Enter the field name that holds these sub-items (e.g. <code>messages</code>). Each sub-item becomes a separate row, and the data extracted from the parent item is automatically included in every row. To reach a field nested inside another field, separate the names with a dot, e.g. <code>data.messages</code>.</span>
+    
+    <input type="text" name="json_nested_loop_path" value="mapping" maxlength="200" aria-describedby="id_json_nested_loop_path_helptext" id="id_json_nested_loop_path">
+    
+      
+    
+  </div>
+
+
+
+<div id="nested-display-settings">
+  
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_nested_display_by_root_item"
+        name="nested_display_by_root_item"
+        checked
+    />
+    <label class="form-check-label" for="id_nested_display_by_root_item">
+      Group entries by parent item
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+      <span class="helptext">
+        When reviewing their donation, participants normally see one combined table. Enable this to instead show a separate table for each top-level item (e.g. one table per conversation), with that item&#x27;s own data shown once above its table. Only available once a Nested loop path is configured.
+      </span>
+    
+
+  </div>
+
+
+  
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_nested_entry_exclusion_allowed"
+        name="nested_entry_exclusion_allowed"
+        checked
+    />
+    <label class="form-check-label" for="id_nested_entry_exclusion_allowed">
+      Allow item exclusion
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+      <span class="helptext">
+        Adds a button to each entry&#x27;s table (e.g. each conversation) letting participants exclude that specific entry from their donation, without having to decline the whole donation. Requires &#x27;Show one table per nested entry&#x27; to be enabled. Only available once a Nested loop path is configured.
+      </span>
+    
+
+  </div>
+
+
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+
+      </div>
+
+      <hr />
+    </div>
+
+    <p class="pt-2 fw-600">
+      Relevant Fields
+    </p>
+
+    <p>
+      List any field you want to (a) keep in the donated data (mark as
+      <code>keep in donation</code>), or (b) reference in an
+      <code>Extraction Rule</code>.
+    </p>
+
+    <input type="hidden" name="extractionfield_set-TOTAL_FORMS" value="8" id="id_extractionfield_set-TOTAL_FORMS"><input type="hidden" name="extractionfield_set-INITIAL_FORMS" value="8" id="id_extractionfield_set-INITIAL_FORMS"><input type="hidden" name="extractionfield_set-MIN_NUM_FORMS" value="0" id="id_extractionfield_set-MIN_NUM_FORMS"><input type="hidden" name="extractionfield_set-MAX_NUM_FORMS" value="1000" id="id_extractionfield_set-MAX_NUM_FORMS">
+
+    
+
+    <div class="mb-4">
+      <div>
+  <div id="field-formset-container" class="table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Scope</th>
+        <th>Expected name</th>
+        <th>Regex</th>
+        <th>Rename to</th>
+        <th>Keep in donation</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+
+      <tbody id="field-table-body">
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-0-scope" aria-describedby="id_extractionfield_set-0-scope_helptext" id="id_extractionfield_set-0-scope">
+  <option value="root" selected>Root level</option>
+
+  <option value="nested">Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-0-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-0-expected_name_helptext" id="id_extractionfield_set-0-expected_name">
+title</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-0-match_regex" id="id_extractionfield_set-0-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-0-alias" value="conversation_title" maxlength="125" aria-describedby="id_extractionfield_set-0-alias_helptext" id="id_extractionfield_set-0-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-0-keep_in_donation" id="id_extractionfield_set-0-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-0-DELETE" id="id_extractionfield_set-0-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-0-id" value="1" id="id_extractionfield_set-0-id">
+    
+      <input type="hidden" name="extractionfield_set-0-blueprint" value="1" id="id_extractionfield_set-0-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-1-scope" aria-describedby="id_extractionfield_set-1-scope_helptext" id="id_extractionfield_set-1-scope">
+  <option value="root" selected>Root level</option>
+
+  <option value="nested">Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-1-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-1-expected_name_helptext" id="id_extractionfield_set-1-expected_name">
+conversation_id</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-1-match_regex" id="id_extractionfield_set-1-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-1-alias" value="conversation_id" maxlength="125" aria-describedby="id_extractionfield_set-1-alias_helptext" id="id_extractionfield_set-1-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-1-keep_in_donation" id="id_extractionfield_set-1-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-1-DELETE" id="id_extractionfield_set-1-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-1-id" value="2" id="id_extractionfield_set-1-id">
+    
+      <input type="hidden" name="extractionfield_set-1-blueprint" value="1" id="id_extractionfield_set-1-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-2-scope" aria-describedby="id_extractionfield_set-2-scope_helptext" id="id_extractionfield_set-2-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-2-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-2-expected_name_helptext" id="id_extractionfield_set-2-expected_name">
+message.id</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-2-match_regex" id="id_extractionfield_set-2-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-2-alias" value="message_id" maxlength="125" aria-describedby="id_extractionfield_set-2-alias_helptext" id="id_extractionfield_set-2-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-2-keep_in_donation" id="id_extractionfield_set-2-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-2-DELETE" id="id_extractionfield_set-2-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-2-id" value="3" id="id_extractionfield_set-2-id">
+    
+      <input type="hidden" name="extractionfield_set-2-blueprint" value="1" id="id_extractionfield_set-2-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-3-scope" aria-describedby="id_extractionfield_set-3-scope_helptext" id="id_extractionfield_set-3-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-3-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-3-expected_name_helptext" id="id_extractionfield_set-3-expected_name">
+message.author.role</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-3-match_regex" id="id_extractionfield_set-3-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-3-alias" value="role" maxlength="125" aria-describedby="id_extractionfield_set-3-alias_helptext" id="id_extractionfield_set-3-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-3-keep_in_donation" id="id_extractionfield_set-3-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-3-DELETE" id="id_extractionfield_set-3-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-3-id" value="4" id="id_extractionfield_set-3-id">
+    
+      <input type="hidden" name="extractionfield_set-3-blueprint" value="1" id="id_extractionfield_set-3-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-4-scope" aria-describedby="id_extractionfield_set-4-scope_helptext" id="id_extractionfield_set-4-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-4-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-4-expected_name_helptext" id="id_extractionfield_set-4-expected_name">
+message.content.parts</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-4-match_regex" id="id_extractionfield_set-4-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-4-alias" value="text" maxlength="125" aria-describedby="id_extractionfield_set-4-alias_helptext" id="id_extractionfield_set-4-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-4-keep_in_donation" id="id_extractionfield_set-4-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-4-DELETE" id="id_extractionfield_set-4-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-4-id" value="5" id="id_extractionfield_set-4-id">
+    
+      <input type="hidden" name="extractionfield_set-4-blueprint" value="1" id="id_extractionfield_set-4-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-5-scope" aria-describedby="id_extractionfield_set-5-scope_helptext" id="id_extractionfield_set-5-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-5-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-5-expected_name_helptext" id="id_extractionfield_set-5-expected_name">
+message.metadata.model_slug</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-5-match_regex" id="id_extractionfield_set-5-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-5-alias" value="model" maxlength="125" aria-describedby="id_extractionfield_set-5-alias_helptext" id="id_extractionfield_set-5-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-5-keep_in_donation" id="id_extractionfield_set-5-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-5-DELETE" id="id_extractionfield_set-5-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-5-id" value="6" id="id_extractionfield_set-5-id">
+    
+      <input type="hidden" name="extractionfield_set-5-blueprint" value="1" id="id_extractionfield_set-5-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-6-scope" aria-describedby="id_extractionfield_set-6-scope_helptext" id="id_extractionfield_set-6-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-6-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-6-expected_name_helptext" id="id_extractionfield_set-6-expected_name">
+message.create_time</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-6-match_regex" id="id_extractionfield_set-6-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-6-alias" value="create_time" maxlength="125" aria-describedby="id_extractionfield_set-6-alias_helptext" id="id_extractionfield_set-6-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-6-keep_in_donation" id="id_extractionfield_set-6-keep_in_donation" checked>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-6-DELETE" id="id_extractionfield_set-6-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-6-id" value="7" id="id_extractionfield_set-6-id">
+    
+      <input type="hidden" name="extractionfield_set-6-blueprint" value="1" id="id_extractionfield_set-6-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+        <tr>
+  <td>
+    <select name="extractionfield_set-7-scope" aria-describedby="id_extractionfield_set-7-scope_helptext" id="id_extractionfield_set-7-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested" selected>Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-7-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-7-expected_name_helptext" id="id_extractionfield_set-7-expected_name">
+message.metadata.is_visually_hidden_from_conversation</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-7-match_regex" id="id_extractionfield_set-7-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-7-alias" value="hidden" maxlength="125" aria-describedby="id_extractionfield_set-7-alias_helptext" id="id_extractionfield_set-7-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-7-keep_in_donation" id="id_extractionfield_set-7-keep_in_donation">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-7-DELETE" id="id_extractionfield_set-7-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-7-id" value="8" id="id_extractionfield_set-7-id">
+    
+      <input type="hidden" name="extractionfield_set-7-blueprint" value="1" id="id_extractionfield_set-7-blueprint">
+    
+  </td>
+</tr>
+
+
+      
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+
+<div class="d-none">
+  <table>
+    <tbody id="empty-field-form">
+    <tr>
+  <td>
+    <select name="extractionfield_set-__prefix__-scope" aria-describedby="id_extractionfield_set-__prefix__-scope_helptext" id="id_extractionfield_set-__prefix__-scope">
+  <option value="root">Root level</option>
+
+  <option value="nested">Nested level</option>
+
+</select>
+    
+  </td>
+  <td>
+    <textarea name="extractionfield_set-__prefix__-expected_name" cols="60" rows="1" aria-describedby="id_extractionfield_set-__prefix__-expected_name_helptext" id="id_extractionfield_set-__prefix__-expected_name">
+</textarea>
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-__prefix__-match_regex" id="id_extractionfield_set-__prefix__-match_regex">
+    
+  </td>
+  <td class="border-start">
+    <input type="text" name="extractionfield_set-__prefix__-alias" maxlength="125" aria-describedby="id_extractionfield_set-__prefix__-alias_helptext" id="id_extractionfield_set-__prefix__-alias">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-__prefix__-keep_in_donation" id="id_extractionfield_set-__prefix__-keep_in_donation">
+    
+  </td>
+  <td>
+    <input type="checkbox" name="extractionfield_set-__prefix__-DELETE" id="id_extractionfield_set-__prefix__-DELETE">
+    
+      <input type="hidden" name="extractionfield_set-__prefix__-id" id="id_extractionfield_set-__prefix__-id">
+    
+      <input type="hidden" name="extractionfield_set-__prefix__-blueprint" value="1" id="id_extractionfield_set-__prefix__-blueprint">
+    
+  </td>
+</tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+<button type="button" class="ddm-btn ddm-btn-inverted" id="add-field-form">Add field</button>
+
+    </div>
+
+    <p class="pt-2 fw-600">
+      Extraction Rules
+    </p>
+
+    <input type="hidden" name="processingrule_set-TOTAL_FORMS" value="3" id="id_processingrule_set-TOTAL_FORMS"><input type="hidden" name="processingrule_set-INITIAL_FORMS" value="3" id="id_processingrule_set-INITIAL_FORMS"><input type="hidden" name="processingrule_set-MIN_NUM_FORMS" value="0" id="id_processingrule_set-MIN_NUM_FORMS"><input type="hidden" name="processingrule_set-MAX_NUM_FORMS" value="1000" id="id_processingrule_set-MAX_NUM_FORMS">
+
+    
+
+    <div>
+      <table id="inlineform-table" class="table fs-08">
+  <tr class="border-bottom">
+    <th>Order</th>
+    <th>Rule name</th>
+    <th>Field</th>
+    <th>Description</th>
+    <th></th>
+    <th>Delete</th>
+  </tr>
+
+  
+    <tr>
+      
+      
+        
+          
+            <td id="execution_order-0">
+              
+              
+                1
+              
+            </td>
+          
+        
+          
+            <td id="name-0">
+              
+              
+                Drop nodes hidden in the ChatGPT interface
+              
+            </td>
+          
+        
+          
+            <td id="field-0">
+              
+              
+                hidden
+              
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      <td>
+        <span id="step-description-0">–</span>
+      </td>
+
+      <td>
+        <a href="" type="button" data-bs-toggle="modal" data-bs-target="#configuration-0">configure rule</a>
+      </td>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <td>
+            
+            <input type="checkbox" name="processingrule_set-0-DELETE" id="id_processingrule_set-0-DELETE">
+          </td>
+        
+      
+
+      
+        <input type="hidden" name="processingrule_set-0-id" value="1" id="id_processingrule_set-0-id">
+      
+        <input type="hidden" name="processingrule_set-0-blueprint" value="1" id="id_processingrule_set-0-blueprint">
+      
+    </tr>
+
+  
+    <tr>
+      
+      
+        
+          
+            <td id="execution_order-1">
+              
+              
+                2
+              
+            </td>
+          
+        
+          
+            <td id="name-1">
+              
+              
+                Drop system and tool messages
+              
+            </td>
+          
+        
+          
+            <td id="field-1">
+              
+              
+                role
+              
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      <td>
+        <span id="step-description-1">–</span>
+      </td>
+
+      <td>
+        <a href="" type="button" data-bs-toggle="modal" data-bs-target="#configuration-1">configure rule</a>
+      </td>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <td>
+            
+            <input type="checkbox" name="processingrule_set-1-DELETE" id="id_processingrule_set-1-DELETE">
+          </td>
+        
+      
+
+      
+        <input type="hidden" name="processingrule_set-1-id" value="2" id="id_processingrule_set-1-id">
+      
+        <input type="hidden" name="processingrule_set-1-blueprint" value="1" id="id_processingrule_set-1-blueprint">
+      
+    </tr>
+
+  
+    <tr>
+      
+      
+        
+          
+            <td id="execution_order-2">
+              
+              
+                3
+              
+            </td>
+          
+        
+          
+            <td id="name-2">
+              
+              
+                EXAMPLE rule: mask e-mail addresses (regex masking is not anonymization)
+              
+            </td>
+          
+        
+          
+            <td id="field-2">
+              
+              
+                text
+              
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      <td>
+        <span id="step-description-2">–</span>
+      </td>
+
+      <td>
+        <a href="" type="button" data-bs-toggle="modal" data-bs-target="#configuration-2">configure rule</a>
+      </td>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <td>
+            
+            <input type="checkbox" name="processingrule_set-2-DELETE" id="id_processingrule_set-2-DELETE">
+          </td>
+        
+      
+
+      
+        <input type="hidden" name="processingrule_set-2-id" value="3" id="id_processingrule_set-2-id">
+      
+        <input type="hidden" name="processingrule_set-2-blueprint" value="1" id="id_processingrule_set-2-blueprint">
+      
+    </tr>
+
+  
+
+</table>
+
+    </div>
+
+    <div class="mb-3 fs-4">
+      <a id="add-inline-form" class="ddm-btn ddm-btn-inverted" type="button">Add Extraction Rule</a>
+    </div>
+
+    <div>
+      <div class="ddm-info-collapsible mx-0 mb-0 mt-4">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-howdataextraction">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-howdataextraction"
+            aria-expanded="false"
+            aria-controls="info-collapsible-howdataextraction"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;How the data extraction works
+    </button>
+  </div>
+
+  <div id="info-collapsible-howdataextraction"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-howdataextraction"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p>
+  Only fields listed in the <code>Relevant Fields</code> section and marked
+  <code>keep in donation</code> are included in the donated data.
+  Optionally, you can provide a field alias via <code>rename to</code>,
+  which is used both in the data export and when referencing the field in
+  <code>Extraction Rules</code>.
+  Data is then extracted and transformed according to the defined
+  <code>Extraction Rules</code> (if any).
+</p>
+<p>
+  <code>Extraction Rules</code> are applied row-by-row to the data located at
+  the defined <code>Extraction Root</code>, in the order you define them.
+  All extraction happens on the participant's device, using JavaScript.
+</p>
+
+<p>Configuring extraction:</p>
+
+<div>
+  <ol class="mb-4 mt-2">
+    <li>
+      In the <code>Extraction Fields</code> section, list each field you
+      want to keep and mark it <code>keep in donation</code>.
+    </li>
+    <li>
+      Add <code>Extraction Rules</code> to filter (delete rows) or transform
+      values using comparison or regex operators.
+    </li>
+  </ol>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+    <div class="mb-3">
+      <div class="ddm-info-collapsible mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-dataextraction">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-dataextraction"
+            aria-expanded="false"
+            aria-controls="info-collapsible-dataextraction"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;Extraction rule options
+    </button>
+  </div>
+
+  <div id="info-collapsible-dataextraction"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-dataextraction"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <table id="extraction-info-table" class="table table-borderless table-striped fs-08">
+  <tr class="border-bottom">
+    <th>Extraction Operator</th>
+    <th>Description</th>
+    <th>Note</th>
+  </tr>
+  <tr>
+    <td>Equal (==)</td>
+    <td>Delete row if field value equals <code>comparison value</code>.</td>
+    <td>Works for strings, integers, and dates<sup>1</sup>.</td>
+  </tr>
+  <tr>
+    <td>Not Equal (!=)</td>
+    <td>Delete row if field value does not equal <code>comparison value</code>.</td>
+    <td>Works for strings, integers, and dates<sup>1</sup>.</td>
+  </tr>
+  <tr>
+    <td>Greater than (>)</td>
+    <td>Delete row if field value is greater than <code>comparison value</code>.</td>
+    <td>Works for integers and dates<sup>1</sup>. Strings are skipped and row is kept in the data.</td>
+  </tr>
+  <tr>
+    <td>Smaller than (<)</td>
+    <td>Delete row if field value is smaller than <code>comparison value</code>.</td>
+    <td>Works for integers and dates<sup>1</sup>. Strings are skipped and row is kept in the data.</td>
+  </tr>
+  <tr>
+    <td>Greater than or equal (>=)</td>
+    <td>Delete row if field value is greater than or equal to <code>comparison value</code>.</td>
+    <td>Works for integers and dates<sup>1</sup>. Strings are skipped and row is kept in the data.</td>
+  </tr>
+  <tr>
+    <td>Smaller than or equal (<=)</td>
+    <td>Delete row if field value is smaller than or equal to <code>comparison value</code>.</td>
+    <td>Works for integers and dates<sup>1</sup>. Strings are skipped and row is kept in the data.</td>
+  </tr>
+  <tr>
+    <td>Delete match (regex)</td>
+    <td>Remove the part of the field value that matches the regex.<br />
+      <em>Example:</em> regex <code>^Watched </code> transforms "Watched video XY" → "video XY"</td>
+    <td>Values are converted to strings before regex matching.</td>
+  </tr>
+  <tr>
+    <td>Replace match (regex)</td>
+    <td>Replace the matching part of the field value with <code>replacement value</code>.<br />
+      <em>Example:</em> regex <code>[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}</code> with replacement <code>_anonymized_</code> transforms "some text email@address.com" → "some text _anonymized_"</td>
+    <td>Values are converted to strings before regex matching.</td>
+  </tr>
+  <tr>
+    <td>Delete row when match (regex)</td>
+    <td>Delete the entire row if the field value matches the regex.<br />
+      <em>Example:</em> regex <code>^Watched </code> deletes any row where the field starts with "Watched "</td>
+    <td>Values are converted to strings before regex matching.</td>
+  </tr>
+</table>
+
+<p class="ddm-note">
+  <sup>1</sup>Dates are detected if formatted as ISO, RFC2822, or HTTP, and only if both values use the same format.
+  Otherwise, treated as strings.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+    
+      
+        <div class="modal" id="configuration-0" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="fw-bold">Rule Configuration</h4>
+
+        <div class="rule-configuration-form mb-3">
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-0-execution_order">Execution order</label>
+    
+    
+    
+      <span class="helptext">The order in which rules are applied</span>
+    
+    <input type="number" name="processingrule_set-0-execution_order" value="1" aria-describedby="id_processingrule_set-0-execution_order_helptext" id="id_processingrule_set-0-execution_order">
+    
+      
+    
+  </div>
+
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-0-name">Name</label>
+    
+    
+    
+      <span class="helptext">A label for this rule (internal use only)</span>
+    
+    <input type="text" name="processingrule_set-0-name" value="Drop nodes hidden in the ChatGPT interface" maxlength="250" aria-describedby="id_processingrule_set-0-name_helptext" id="id_processingrule_set-0-name">
+    
+      
+    
+  </div>
+
+
+
+  <p><label for="id_processingrule_set-0-field">Field:</label></p>
+  <div class="ddm-form-group">
+    
+  <div class="form-field-wrapper mt-0">
+    
+      <span class="d-none"><label for="id_processingrule_set-0-field">Field:</label></span>
+    
+    
+    
+    <select name="processingrule_set-0-field" id="id_processingrule_set-0-field">
+  <option value="">---------</option>
+
+  <option value="1">conversation_title</option>
+
+  <option value="2">conversation_id</option>
+
+  <option value="3">message_id</option>
+
+  <option value="4">role</option>
+
+  <option value="5">text</option>
+
+  <option value="6">model</option>
+
+  <option value="7">create_time</option>
+
+  <option value="8" selected>hidden</option>
+
+</select>
+    
+  </div>
+
+
+  </div>
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-0-comparison_operator">Extraction Operator</label>
+    
+    
+    
+    <select name="processingrule_set-0-comparison_operator" id="id_processingrule_set-0-comparison_operator">
+  <option value="">---------</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="regex-delete-match">Delete match (regex)</option>
+
+  <option value="regex-replace-match">Replace match (regex)</option>
+
+  <option value="regex-delete-row" selected>Delete row when match (regex)</option>
+
+</select>
+    
+  </div>
+
+
+
+  <div class="operator-options d-none">
+    <p><label>Operator options</label></p>
+    <div class="ddm-form-group">
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-0-comparison_value">Comparison value</label>
+    
+    
+    
+      <span class="helptext">The value to compare the field against</span>
+    
+    <textarea name="processingrule_set-0-comparison_value" cols="60" rows="1" aria-describedby="id_processingrule_set-0-comparison_value_helptext" id="id_processingrule_set-0-comparison_value">
+^(true|True)$</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-0-replacement_value">Replacement value</label>
+    
+    
+    
+      <span class="helptext">The replacement for matched text.</span>
+    
+    <textarea name="processingrule_set-0-replacement_value" cols="60" rows="1" aria-describedby="id_processingrule_set-0-replacement_value_helptext" id="id_processingrule_set-0-replacement_value">
+</textarea>
+    
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+        <div class="modal-footer">
+          <button id="ddm-modal-cancel-0" type="button" class="ddm-btn-base ddm-btn-secondary ddm-modal-cancel">Cancel</button>
+          <button id="ddm-modal-ok-0" type="button" class="ddm-btn-base ddm-btn-green ddm-modal-ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    
+      
+        <div class="modal" id="configuration-1" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="fw-bold">Rule Configuration</h4>
+
+        <div class="rule-configuration-form mb-3">
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-1-execution_order">Execution order</label>
+    
+    
+    
+      <span class="helptext">The order in which rules are applied</span>
+    
+    <input type="number" name="processingrule_set-1-execution_order" value="2" aria-describedby="id_processingrule_set-1-execution_order_helptext" id="id_processingrule_set-1-execution_order">
+    
+      
+    
+  </div>
+
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-1-name">Name</label>
+    
+    
+    
+      <span class="helptext">A label for this rule (internal use only)</span>
+    
+    <input type="text" name="processingrule_set-1-name" value="Drop system and tool messages" maxlength="250" aria-describedby="id_processingrule_set-1-name_helptext" id="id_processingrule_set-1-name">
+    
+      
+    
+  </div>
+
+
+
+  <p><label for="id_processingrule_set-1-field">Field:</label></p>
+  <div class="ddm-form-group">
+    
+  <div class="form-field-wrapper mt-0">
+    
+      <span class="d-none"><label for="id_processingrule_set-1-field">Field:</label></span>
+    
+    
+    
+    <select name="processingrule_set-1-field" id="id_processingrule_set-1-field">
+  <option value="">---------</option>
+
+  <option value="1">conversation_title</option>
+
+  <option value="2">conversation_id</option>
+
+  <option value="3">message_id</option>
+
+  <option value="4" selected>role</option>
+
+  <option value="5">text</option>
+
+  <option value="6">model</option>
+
+  <option value="7">create_time</option>
+
+  <option value="8">hidden</option>
+
+</select>
+    
+  </div>
+
+
+  </div>
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-1-comparison_operator">Extraction Operator</label>
+    
+    
+    
+    <select name="processingrule_set-1-comparison_operator" id="id_processingrule_set-1-comparison_operator">
+  <option value="">---------</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="regex-delete-match">Delete match (regex)</option>
+
+  <option value="regex-replace-match">Replace match (regex)</option>
+
+  <option value="regex-delete-row" selected>Delete row when match (regex)</option>
+
+</select>
+    
+  </div>
+
+
+
+  <div class="operator-options d-none">
+    <p><label>Operator options</label></p>
+    <div class="ddm-form-group">
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-1-comparison_value">Comparison value</label>
+    
+    
+    
+      <span class="helptext">The value to compare the field against</span>
+    
+    <textarea name="processingrule_set-1-comparison_value" cols="60" rows="1" aria-describedby="id_processingrule_set-1-comparison_value_helptext" id="id_processingrule_set-1-comparison_value">
+^(system|tool)$</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-1-replacement_value">Replacement value</label>
+    
+    
+    
+      <span class="helptext">The replacement for matched text.</span>
+    
+    <textarea name="processingrule_set-1-replacement_value" cols="60" rows="1" aria-describedby="id_processingrule_set-1-replacement_value_helptext" id="id_processingrule_set-1-replacement_value">
+</textarea>
+    
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+        <div class="modal-footer">
+          <button id="ddm-modal-cancel-1" type="button" class="ddm-btn-base ddm-btn-secondary ddm-modal-cancel">Cancel</button>
+          <button id="ddm-modal-ok-1" type="button" class="ddm-btn-base ddm-btn-green ddm-modal-ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    
+      
+        <div class="modal" id="configuration-2" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4 class="fw-bold">Rule Configuration</h4>
+
+        <div class="rule-configuration-form mb-3">
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-2-execution_order">Execution order</label>
+    
+    
+    
+      <span class="helptext">The order in which rules are applied</span>
+    
+    <input type="number" name="processingrule_set-2-execution_order" value="3" aria-describedby="id_processingrule_set-2-execution_order_helptext" id="id_processingrule_set-2-execution_order">
+    
+      
+    
+  </div>
+
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-2-name">Name</label>
+    
+    
+    
+      <span class="helptext">A label for this rule (internal use only)</span>
+    
+    <input type="text" name="processingrule_set-2-name" value="EXAMPLE rule: mask e-mail addresses (regex masking is not anonymization)" maxlength="250" aria-describedby="id_processingrule_set-2-name_helptext" id="id_processingrule_set-2-name">
+    
+      
+    
+  </div>
+
+
+
+  <p><label for="id_processingrule_set-2-field">Field:</label></p>
+  <div class="ddm-form-group">
+    
+  <div class="form-field-wrapper mt-0">
+    
+      <span class="d-none"><label for="id_processingrule_set-2-field">Field:</label></span>
+    
+    
+    
+    <select name="processingrule_set-2-field" id="id_processingrule_set-2-field">
+  <option value="">---------</option>
+
+  <option value="1">conversation_title</option>
+
+  <option value="2">conversation_id</option>
+
+  <option value="3">message_id</option>
+
+  <option value="4">role</option>
+
+  <option value="5" selected>text</option>
+
+  <option value="6">model</option>
+
+  <option value="7">create_time</option>
+
+  <option value="8">hidden</option>
+
+</select>
+    
+  </div>
+
+
+  </div>
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-2-comparison_operator">Extraction Operator</label>
+    
+    
+    
+    <select name="processingrule_set-2-comparison_operator" id="id_processingrule_set-2-comparison_operator">
+  <option value="">---------</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="regex-delete-match">Delete match (regex)</option>
+
+  <option value="regex-replace-match" selected>Replace match (regex)</option>
+
+  <option value="regex-delete-row">Delete row when match (regex)</option>
+
+</select>
+    
+  </div>
+
+
+
+  <div class="operator-options d-none">
+    <p><label>Operator options</label></p>
+    <div class="ddm-form-group">
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-2-comparison_value">Comparison value</label>
+    
+    
+    
+      <span class="helptext">The value to compare the field against</span>
+    
+    <textarea name="processingrule_set-2-comparison_value" cols="60" rows="1" aria-describedby="id_processingrule_set-2-comparison_value_helptext" id="id_processingrule_set-2-comparison_value">
+[\w.+-]+@[\w-]+(\.[\w-]+)+</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-2-replacement_value">Replacement value</label>
+    
+    
+    
+      <span class="helptext">The replacement for matched text.</span>
+    
+    <textarea name="processingrule_set-2-replacement_value" cols="60" rows="1" aria-describedby="id_processingrule_set-2-replacement_value_helptext" id="id_processingrule_set-2-replacement_value">
+_email_removed_</textarea>
+    
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+        <div class="modal-footer">
+          <button id="ddm-modal-cancel-2" type="button" class="ddm-btn-base ddm-btn-secondary ddm-modal-cancel">Cancel</button>
+          <button id="ddm-modal-ok-2" type="button" class="ddm-btn-base ddm-btn-green ddm-modal-ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    
+
+    <table id="empty-form-placeholder">
+  <tr>
+    
+      
+        <td id="execution_order-__prefix__">
+          
+          None
+        </td>
+      
+    
+      
+        <td id="name-__prefix__">
+          
+          None
+        </td>
+      
+    
+      
+        <td id="field-__prefix__">
+          
+          None
+        </td>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    <td><span id="step-description-__prefix__">–</span></td>
+
+    <td><a href="" type="button" data-bs-toggle="modal" data-bs-target="#configuration-__prefix__">configure rule</a></td>
+
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        <td>
+          
+          <input type="checkbox" name="processingrule_set-__prefix__-DELETE" id="id_processingrule_set-__prefix__-DELETE">
+        </td>
+      
+    
+
+    
+      <input type="hidden" name="processingrule_set-__prefix__-id" id="id_processingrule_set-__prefix__-id">
+    
+      <input type="hidden" name="processingrule_set-__prefix__-blueprint" value="1" id="id_processingrule_set-__prefix__-blueprint">
+    
+  </tr>
+</table>
+
+    <div id="empty-form">
+      <div class="rule-configuration-form">
+        <div class="rule-configuration-form mb-3">
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-__prefix__-execution_order">Execution order</label>
+    
+    
+    
+      <span class="helptext">The order in which rules are applied</span>
+    
+    <input type="number" name="processingrule_set-__prefix__-execution_order" aria-describedby="id_processingrule_set-__prefix__-execution_order_helptext" id="id_processingrule_set-__prefix__-execution_order">
+    
+      
+    
+  </div>
+
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-__prefix__-name">Name</label>
+    
+    
+    
+      <span class="helptext">A label for this rule (internal use only)</span>
+    
+    <input type="text" name="processingrule_set-__prefix__-name" maxlength="250" aria-describedby="id_processingrule_set-__prefix__-name_helptext" id="id_processingrule_set-__prefix__-name">
+    
+      
+    
+  </div>
+
+
+
+  <p><label for="id_processingrule_set-__prefix__-field">Field:</label></p>
+  <div class="ddm-form-group">
+    
+  <div class="form-field-wrapper mt-0">
+    
+      <span class="d-none"><label for="id_processingrule_set-__prefix__-field">Field:</label></span>
+    
+    
+    
+    <select name="processingrule_set-__prefix__-field" id="id_processingrule_set-__prefix__-field">
+  <option value="" selected>---------</option>
+
+  <option value="1">conversation_title</option>
+
+  <option value="2">conversation_id</option>
+
+  <option value="3">message_id</option>
+
+  <option value="4">role</option>
+
+  <option value="5">text</option>
+
+  <option value="6">model</option>
+
+  <option value="7">create_time</option>
+
+  <option value="8">hidden</option>
+
+</select>
+    
+  </div>
+
+
+  </div>
+
+  
+  <div class="form-field-wrapper ">
+    
+      <label for="id_processingrule_set-__prefix__-comparison_operator">Extraction Operator</label>
+    
+    
+    
+    <select name="processingrule_set-__prefix__-comparison_operator" id="id_processingrule_set-__prefix__-comparison_operator">
+  <option value="" selected>---------</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="regex-delete-match">Delete match (regex)</option>
+
+  <option value="regex-replace-match">Replace match (regex)</option>
+
+  <option value="regex-delete-row">Delete row when match (regex)</option>
+
+</select>
+    
+  </div>
+
+
+
+  <div class="operator-options d-none">
+    <p><label>Operator options</label></p>
+    <div class="ddm-form-group">
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-__prefix__-comparison_value">Comparison value</label>
+    
+    
+    
+      <span class="helptext">The value to compare the field against</span>
+    
+    <textarea name="processingrule_set-__prefix__-comparison_value" cols="60" rows="1" aria-describedby="id_processingrule_set-__prefix__-comparison_value_helptext" id="id_processingrule_set-__prefix__-comparison_value">
+</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper mt-0 mb-1">
+    
+      <label for="id_processingrule_set-__prefix__-replacement_value">Replacement value</label>
+    
+    
+    
+      <span class="helptext">The replacement for matched text.</span>
+    
+    <textarea name="processingrule_set-__prefix__-replacement_value" cols="60" rows="1" aria-describedby="id_processingrule_set-__prefix__-replacement_value_helptext" id="id_processingrule_set-__prefix__-replacement_value">
+</textarea>
+    
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+  </div>
+
+  
+  <div id="delete-blueprint-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Advanced Settings</h2>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_backup_for">Backup for</label>
+    
+    
+    
+      <span class="helptext">If set, this blueprint is used as a fallback when the referenced blueprint&#x27;s parser fails to extract data (either because it does not find the expected file or because it encounters an error).</span>
+    
+    <select name="backup_for" aria-describedby="id_backup_for_helptext" id="id_backup_for">
+  <option value="" selected>---------</option>
+
+</select>
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_backup_priority">Backup priority</label>
+    
+    
+    
+      <span class="helptext">If a Blueprint has multiple backups, backup blueprints with lower priority values are tried first when the main blueprint&#x27;s parser fails.</span>
+    
+    <input type="number" name="backup_priority" value="0" min="0" required aria-describedby="id_backup_priority_helptext" id="id_backup_priority">
+    
+      
+    
+  </div>
+
+
+
+  </div>
+</div>
+
+
+  <script id="file_uploader_meta" type="application/json">{"1": "zip file"}</script>
+
+
+    </form>
+  
+
+  
+  
+  <div id="copy-blueprint-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Copy Blueprint</h2>
+    </div>
+
+    <div class="col-auto">
+      <form
+        method="post"
+       
+        onsubmit="this.querySelector('button').disabled = true;"
+      >
+        <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+        <button
+          class="ddm-btn-base ddm-btn-secondary"
+          type="submit"
+        >
+          Create a copy of this Blueprint
+        </button>
+      </form>
+    </div>
+
+    <div class="col-auto">
+      <a
+        class="ddm-btn-base ddm-btn-secondary"
+        href="#" data-demo-off="1">
+        Export Blueprint
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+  
+  <div id="delete-blueprint-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2 class="fc-red">Delete Blueprint</h2>
+    </div>
+
+    <div class="col-auto">
+      <a
+        class="ddm-btn-base ddm-btn-red-inverted"
+        href="#" data-demo-off="1"
+      >
+        Delete Blueprint
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../../../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../../../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Blueprint"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script src="../../../../../../static/ddm_datadonation/js/blueprint-edit-ui-helpers.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/file-path-form-helper.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/field-form-helper.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/processing-rule-modal.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/processing-rule-formset-error-indicator.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/blueprint-general-ui-helpers.js"></script>
+  <script src="../../../../../../static/ddm_datadonation/js/accordion-form-error-indicator.js"></script>
+
+
+<script src="../../../../../../demo-admin.js"></script>
+</body>
+
+</html>

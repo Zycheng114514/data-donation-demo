@@ -1,0 +1,34 @@
+/* Styles added by the static demo (banner, landing page, "what would have been sent" panel).
+   The Port and DDM pages keep their own styles; this file only adds classes prefixed demo-. */
+:root { --demo-ink:#1b1f24; --demo-muted:#5b6470; --demo-line:#d9dee5; --demo-accent:#0b5cad; --demo-bg:#f6f8fa; --demo-card:#fff; --demo-warn:#fff4ce; --demo-warn-line:#e6d48a; }
+.demo-banner { background:var(--demo-warn); border-bottom:1px solid var(--demo-warn-line); padding:.5rem 1rem; font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; text-align:center; color:#1b1f24; }
+.demo-banner a { color:#0b5cad; }
+.demo-panel { max-width:1000px; margin:1.5rem auto; padding:1.25rem 1.5rem; background:var(--demo-card); border:2px dashed var(--demo-accent); border-radius:8px; font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--demo-ink); }
+.demo-panel h2 { font-size:1.15rem; margin:0 0 .5rem; }
+.demo-panel h3 { font-size:1rem; margin:1.25rem 0 .35rem; }
+.demo-muted { color:var(--demo-muted); font-size:.9rem; margin:.25rem 0; }
+.demo-table-wrap { overflow-x:auto; border:1px solid var(--demo-line); border-radius:6px; margin:.35rem 0 .6rem; }
+.demo-table { border-collapse:collapse; width:100%; font-size:.85rem; }
+.demo-table th, .demo-table td { border-bottom:1px solid var(--demo-line); padding:.3rem .5rem; text-align:left; vertical-align:top; }
+.demo-table th { background:var(--demo-bg); position:sticky; top:0; }
+.demo-pre { background:var(--demo-bg); border:1px solid var(--demo-line); border-radius:6px; padding:.6rem; overflow-x:auto; font-size:.8rem; max-height:22rem; }
+.demo-btn { font:inherit; font-size:.9rem; padding:.4rem 1rem; border-radius:6px; border:1px solid var(--demo-accent); background:var(--demo-accent); color:#fff; cursor:pointer; margin:.25rem .5rem .25rem 0; }
+.demo-btn.secondary { background:#fff; color:var(--demo-accent); }
+
+/* Landing page */
+.demo-page { margin:0; background:var(--demo-bg); color:var(--demo-ink); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+.demo-main { max-width:920px; margin:0 auto; padding:1.5rem 16px 4rem; }
+.demo-main h1 { font-size:1.6rem; margin:.5rem 0 .75rem; }
+.demo-main h2 { font-size:1.15rem; margin:2rem 0 .5rem; }
+.demo-main code { background:#eaeef2; padding:.05rem .3rem; border-radius:4px; font-size:.9em; }
+.demo-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; }
+.demo-card { background:var(--demo-card); border:1px solid var(--demo-line); border-radius:8px; padding:1.1rem 1.25rem; display:flex; flex-direction:column; }
+.demo-card h3 { margin:0 0 .25rem; font-size:1.1rem; }
+.demo-card ol { padding-left:1.2rem; margin:.5rem 0 1rem; }
+.demo-card .demo-go { margin-top:auto; align-self:flex-start; text-decoration:none; display:inline-block; }
+.demo-card .demo-actions { margin:auto 0 0; }
+.demo-card .demo-actions .demo-btn { text-decoration:none; display:inline-block; }
+.demo-main table { border-collapse:collapse; width:100%; font-size:.92rem; background:var(--demo-card); }
+.demo-main th, .demo-main td { border:1px solid var(--demo-line); padding:.4rem .6rem; text-align:left; vertical-align:top; }
+.demo-main th { background:#eef1f4; }
+.demo-table-scroll { overflow-x:auto; }

@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Questionnaire Setup</title>
+
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <span>Questionnaire</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Questionnaire</h1>
+      <div class="h1-sub">
+  <p>
+    The questionnaire appears after participants complete their data donation.
+    If no questions are defined, participants skip directly to the debriefing page.
+  </p>
+  <p>
+    Questions are organized into pages.
+    All questions on a page display together, and participants navigate to the next page using a "Next" button (no back navigation between pages).
+    Responses are submitted only when the questionnaire is complete—partial responses are not currently saved.
+  </p>
+</div>
+    </div>
+  
+
+  <div>
+    
+
+  <div class="mt-3">
+    
+      <div class="ddm-section-container ddm-section-collapsible">
+
+        
+          
+            
+              <div class="ddm-accordion-item narrow-accordion">
+
+  <div class="ddm-accordion-header" id="headingPage1">
+    <button class="ddm-accordion-btn "
+            type="button"
+            id="accordionButtonPage1"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsePage1"
+            aria-expanded="true"
+            aria-controls="collapsePage1"
+            
+    >
+    <span>
+      <span class="ddm-accordion-title ">Page 1</span>
+      <br /><span class="ddm-accordion-description">Questions: 2</span>
+    </span>
+
+    </button>
+  </div>
+
+  <div id="collapsePage1"
+       class="accordion-collapse ddm-accordion-collapse collapse show"
+       aria-labelledby="headingPage1"
+  >
+    <div>
+      <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr class="lh-1 align-bottom">
+      <th class="fs-08">Index</th>
+      <th class="fs-08">Name</th>
+      <th class="fs-08 text-center"></th>
+      <th class="fs-08">Linked Blueprint</th>
+    </tr>
+    </thead>
+    <tbody class="border-top-0">
+    
+      
+
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a href="transition/1/edit/index.html">Intro (uses donated data)</a>
+        </td>
+        <td class="text-center">
+          <span class="badge-grey">Text Block</span>
+        </td>
+        <td>
+          
+            ChatGPT conversations
+          
+        </td>
+      </tr>
+
+    
+      
+
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          <a href="single_choice/2/edit/index.html">Placeholder single choice</a>
+        </td>
+        <td class="text-center">
+          <span class="badge-grey">Single Choice Question</span>
+        </td>
+        <td>
+          
+            <span class="text-muted">–</span>
+          
+        </td>
+      </tr>
+
+    
+    </tbody>
+  </table>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+            
+          
+        
+
+      </div>
+    
+      <div class="ddm-section-container ddm-section-collapsible">
+
+        
+          
+            
+              <div class="ddm-accordion-item narrow-accordion">
+
+  <div class="ddm-accordion-header" id="headingPage2">
+    <button class="ddm-accordion-btn "
+            type="button"
+            id="accordionButtonPage2"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsePage2"
+            aria-expanded="true"
+            aria-controls="collapsePage2"
+            
+    >
+    <span>
+      <span class="ddm-accordion-title ">Page 2</span>
+      <br /><span class="ddm-accordion-description">Questions: 1</span>
+    </span>
+
+    </button>
+  </div>
+
+  <div id="collapsePage2"
+       class="accordion-collapse ddm-accordion-collapse collapse show"
+       aria-labelledby="headingPage2"
+  >
+    <div>
+      <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr class="lh-1 align-bottom">
+      <th class="fs-08">Index</th>
+      <th class="fs-08">Name</th>
+      <th class="fs-08 text-center"></th>
+      <th class="fs-08">Linked Blueprint</th>
+    </tr>
+    </thead>
+    <tbody class="border-top-0">
+    
+      
+
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a href="open/3/edit/index.html">Placeholder open question</a>
+        </td>
+        <td class="text-center">
+          <span class="badge-grey">Open Question</span>
+        </td>
+        <td>
+          
+            <span class="text-muted">–</span>
+          
+        </td>
+      </tr>
+
+    
+    </tbody>
+  </table>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+            
+          
+        
+
+      </div>
+    
+  </div>
+
+  <div class="pt-3">
+    <div class="ddm-info-collapsible white">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-bp-questions-infobox">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-bp-questions-infobox"
+            aria-expanded="false"
+            aria-controls="info-collapsible-bp-questions-infobox"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;About General Questions and Blueprint-Related Questions
+    </button>
+  </div>
+
+  <div id="info-collapsible-bp-questions-infobox"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-bp-questions-infobox"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p>
+  General questions will be displayed to all participants after they have concluded the data donation.
+</p>
+<p>
+  Questions associated to a Blueprint will only be shown to those participants who have donated some data to the respective Blueprint.
+  Otherwise, they will be omitted.<br />
+  In questions associated to a Blueprint, the donated data is available as a variable through which specific data points can be extracted from the donated data
+  of a person and included in the question body (e.g., extract the last video from a person's watch history and ask questions related to this specific video).
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  <div
+    class="modal"
+    id="questionPickerModal"
+    tabindex="-1"
+    aria-labelledby="questionPickerModalLabel"
+    aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+        >
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="fw-bold">What type of question do you want to create?</p>
+
+        
+          
+
+        
+          
+            <div>
+              <a href="single_choice/create/index.html">
+                <div class="settings-card">
+                  Single Choice Question
+                </div>
+              </a>
+            </div>
+          
+
+        
+          
+            <div>
+              <a href="multi_choice/create/index.html">
+                <div class="settings-card">
+                  Multi Choice Question
+                </div>
+              </a>
+            </div>
+          
+
+        
+          
+            <div>
+              <a href="matrix/create/index.html">
+                <div class="settings-card">
+                  Matrix Question
+                </div>
+              </a>
+            </div>
+          
+
+        
+          
+            <div>
+              <a href="semantic_diff/create/index.html">
+                <div class="settings-card">
+                  Semantic Differential
+                </div>
+              </a>
+            </div>
+          
+
+        
+          
+            <div>
+              <a href="open/create/index.html">
+                <div class="settings-card">
+                  Open Question
+                </div>
+              </a>
+            </div>
+          
+
+        
+          
+            <div>
+              <a href="transition/create/index.html">
+                <div class="settings-card">
+                  Text Block
+                </div>
+              </a>
+            </div>
+          
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          <div><a href="../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+        </div>
+        <div class="col-6 justify-content-end text-end">
+          <a class="ddm-btn-base ddm-btn-secondary" href="#" data-demo-off="1">Export Questionnaire</a>
+          <a class="ddm-btn-base ddm-btn-secondary" href="#" data-demo-off="1">Import Questionnaire</a>
+          <button type="button" class="ddm-btn-base ddm-btn-green" data-bs-toggle="modal" data-bs-target="#questionPickerModal">Create new question</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script src="../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+
+<script src="../../../demo-admin.js"></script>
+</body>
+
+</html>

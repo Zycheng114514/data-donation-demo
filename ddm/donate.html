@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ChatGPT donation - prototype</title>
+
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/fonts.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/research-interface-base.css" />
+  
+
+  
+
+  <link rel="stylesheet" href="../demo.css">
+</head>
+<body id="ddm-participation-body">
+<div class="demo-banner">Static demo of the DDM participant pages. Nothing you select or type here is sent anywhere; it stays in this browser tab. <a href="../">All demos</a></div>
+<div id="ddm-participation-header">
+  
+    <div class="border-bottom">
+  <div class="container py-3">
+    <div class="row align-items-center">
+      <div class="col-6 col-sm-3 col-md-4 order-0 text-start text-sm-center">
+        
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1 text-center project-title pt-4 pt-sm-0">
+        
+      </div>
+
+      <div class="col-6 col-sm-3 col-md-4 order-1 order-sm-2 text-end text-sm-center">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+<div id="ddm-participation-main">
+  <div class="container public-main py-5 px-3">
+    <div class="row justify-content-center">
+      
+
+  <div class="col-12 col-lg-9 col-xl-8">
+    <div
+      id="uapp"
+      class="container text-black ps-0 pe-0"
+      data-action-url='demo:donate'
+      data-exception-url='demo:log'
+      data-language='en'
+      data-csrf-token="static-demo"
+    >
+      <script id="config-data" type="application/json">[{"uploader_id": 1, "upload_type": "zip file", "nested_zip_extraction_depth": 0, "name": "Your ChatGPT data export", "combined_consent": false, "instructions": [{"index": 1, "text": "\u003Ch3\u003EStep 1 - Request your ChatGPT data\u003C/h3\u003E\u003Cp\u003ESign in at chatgpt.com in a web browser. Open your profile menu, then \u003Ci\u003ESettings\u003C/i\u003E \u0026rarr; \u003Ci\u003EData controls\u003C/i\u003E \u0026rarr; \u003Ci\u003EExport data\u003C/i\u003E \u0026rarr; \u003Ci\u003EConfirm export\u003C/i\u003E.\u003C/p\u003E"}, {"index": 2, "text": "\u003Ch3\u003EStep 2 - Download the file\u003C/h3\u003E\u003Cp\u003EOpenAI sends an e-mail with a download link. The link expires, so download the file soon after the e-mail arrives. Save the \u003Cb\u003E.zip\u003C/b\u003E file and do not unzip it.\u003C/p\u003E"}, {"index": 3, "text": "\u003Ch3\u003EStep 3 - Select the file on the next page\u003C/h3\u003E\u003Cp\u003EThe file is read inside your browser. Only the fields listed on the next page are extracted, you can look at them first, and nothing is sent unless you agree.\u003C/p\u003E\u003Cp\u003E[things to be filled: any study-specific instruction, e.g. which conversations to exclude]\u003C/p\u003E\u003Cp\u003E\u003Csmall\u003EPrototype only - no export at hand? Use a synthetic test file (no real data): \u003Ca href='../sample/synthetic_chatgpt_export_sharded.zip' download\u003Esharded layout\u003C/a\u003E or \u003Ca href='../sample/synthetic_chatgpt_export_legacy.zip' download\u003Elegacy layout\u003C/a\u003E.\u003C/small\u003E\u003C/p\u003E"}], "blueprints": [{"id": 1, "name": "Your conversations with ChatGPT", "description": "For every message: conversation title and ID, who wrote it (you or ChatGPT), the text, the model, and the time. [things to be filled: adjust once the study decides which fields it needs]", "format": "json", "expected_fields": ["title", "mapping"], "exp_fields_regex_matching": false, "nested_expected_fields": ["message"], "nested_exp_fields_regex_matching": false, "parser_config": {"format": "json", "extraction_root": "", "nested_loop_path": "mapping", "array_join_separator": "\n"}, "nested_display_by_root_item": true, "nested_entry_exclusion_allowed": true, "fields_to_extract": ["conversation_id", "text", "conversation_title", "create_time", "model", "role", "message_id"], "extraction_fields": [{"id": 1, "scope": "root", "expected_name": "title", "match_regex": false, "keep_in_donation": true, "alias": "conversation_title"}, {"id": 2, "scope": "root", "expected_name": "conversation_id", "match_regex": false, "keep_in_donation": true, "alias": "conversation_id"}, {"id": 3, "scope": "nested", "expected_name": "message.id", "match_regex": false, "keep_in_donation": true, "alias": "message_id"}, {"id": 4, "scope": "nested", "expected_name": "message.author.role", "match_regex": false, "keep_in_donation": true, "alias": "role"}, {"id": 5, "scope": "nested", "expected_name": "message.content.parts", "match_regex": false, "keep_in_donation": true, "alias": "text"}, {"id": 6, "scope": "nested", "expected_name": "message.metadata.model_slug", "match_regex": false, "keep_in_donation": true, "alias": "model"}, {"id": 7, "scope": "nested", "expected_name": "message.create_time", "match_regex": false, "keep_in_donation": true, "alias": "create_time"}, {"id": 8, "scope": "nested", "expected_name": "message.metadata.is_visually_hidden_from_conversation", "match_regex": false, "keep_in_donation": false, "alias": "hidden"}], "file_paths": [{"path": "(^|/)conversations(-\\d+)?\\.json$", "is_regex": true}], "extraction_rules": [{"id": 1, "field": "hidden", "comparison_operator": "regex-delete-row", "comparison_value": "^(true|True)$", "replacement_value": ""}, {"id": 2, "field": "role", "comparison_operator": "regex-delete-row", "comparison_value": "^(system|tool)$", "replacement_value": ""}, {"id": 3, "field": "text", "comparison_operator": "regex-replace-match", "comparison_value": "[\\w.+-]+@[\\w-]+(\\.[\\w-]+)+", "replacement_value": "_email_removed_"}], "is_backup": false, "backup_ids": []}]}]</script>
+      <script id="custom-translations" type="application/json">{}</script>
+      
+      <uapp></uapp>
+      
+    </div>
+  </div>
+  <script src="demo.js" data-page="donate"></script>
+<script src="static/ddm_core/frontend/uploader/js/chunk-vendors.js"></script>
+<link href="static/ddm_core/frontend/uploader/css/ddm_uploader_frontend.css" rel="stylesheet"/>
+<script src="static/ddm_core/frontend/uploader/js/ddm_uploader_frontend.js"></script>
+
+
+    </div>
+  </div>
+</div>
+
+<div id="ddm-participation-footer">
+  
+    
+
+<div class="border-top">
+  <div class="container public-footer pt-3 pb-5">
+    <div class="d-flex flex-row">
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#contactModal"
+        >
+          Contact
+        </a>
+      </div>
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#dataProtectionModal"
+        >
+          What happens with my data?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactInformation" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Contact Information
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: principal investigator name, affiliation, address, e-mail, phone]
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dataProtectionModal" tabindex="-1" aria-labelledby="dataProtection" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Data Protection Statement
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: data protection statement - purpose of collection, storage location, retention period, who has access, IRB protocol number]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+<script src="static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+</html>

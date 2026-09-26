@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Filter Configuration</title>
+
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../index.html">Questionnaire</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../edit/index.html">Question</a><i class="bi bi-chevron-right"></i>
+
+  <span>Filter Configuration</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>
+  Filter Configuration for Question "Placeholder single choi…"
+</h1>
+      <div class="h1-sub">
+  <p>
+    Configure conditions to hide the Question based on answers to previous questions/items or other variables.
+  </p>
+</div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+  <input type="hidden" name="filtercondition_set-TOTAL_FORMS" value="1" id="id_filtercondition_set-TOTAL_FORMS"><input type="hidden" name="filtercondition_set-INITIAL_FORMS" value="0" id="id_filtercondition_set-INITIAL_FORMS"><input type="hidden" name="filtercondition_set-MIN_NUM_FORMS" value="0" id="id_filtercondition_set-MIN_NUM_FORMS"><input type="hidden" name="filtercondition_set-MAX_NUM_FORMS" value="1000" id="id_filtercondition_set-MAX_NUM_FORMS">
+
+  <div id="filter-edit-section" class="ddm-section-container">
+    
+
+    <p><b>Question is hidden, if:</b></p>
+
+    <div class="table-responsive">
+      <table id="filter-condition-table" class="table table-sm mt-3 align-middle">
+        <thead>
+        <tr>
+          <th><label>Index</label></th>
+          <th><label>Logic</label></th>
+          <th><label>Compare to</label></th>
+          <th><label>Operator</label></th>
+          <th><label>Value</label></th>
+          <th><label>Delete</label></th>
+        </tr>
+        </thead>
+
+        <tbody id="filter-condition-form-container" class="border-top-0">
+        
+          <tr>
+  
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-index">Index:</label></span>
+    
+    
+    
+    <input type="number" name="filtercondition_set-0-index" value="1" id="id_filtercondition_set-0-index">
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-combinator">Logic:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-0-combinator" class="w-100" id="id_filtercondition_set-0-combinator">
+  <option value="" selected>Select logic...</option>
+
+  <option value="AND">AND</option>
+
+  <option value="OR">OR</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-source">Compare to:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-0-source" class="w-100" id="id_filtercondition_set-0-source">
+  <option value="" selected>Select variable...</option>
+
+  <option value="question-3">[question, p2] q2</option>
+
+  <option value="url_parameter-_url_pid">[url] _url_pid</option>
+
+  <option value="participant-_participant_id">[participant] _participant_id</option>
+
+  <option value="participant-_start_time">[participant] _start_time</option>
+
+  <option value="participant-_end_time">[participant] _end_time</option>
+
+  <option value="participant-_completed">[participant] _completed</option>
+
+  <option value="participant-_briefing_consent">[participant] _briefing_consent</option>
+
+  <option value="donation-_donation_n_success">[donation] _donation_n_success</option>
+
+  <option value="donation-_donation_n_pending">[donation] _donation_n_pending</option>
+
+  <option value="donation-_donation_n_failed">[donation] _donation_n_failed</option>
+
+  <option value="donation-_donation_n_consent">[donation] _donation_n_consent</option>
+
+  <option value="donation-_donation_n_no_consent">[donation] _donation_n_no_consent</option>
+
+  <option value="donation-_donation_n_no_data_extracted">[donation] _donation_n_no_data_extracted</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-condition_operator">Operator:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-0-condition_operator" class="w-100" id="id_filtercondition_set-0-condition_operator">
+  <option value="" selected>Select operator...</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="contains">Contains</option>
+
+  <option value="contains_not">Does not Contain</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-condition_value">Value:</label></span>
+    
+    
+    
+    <input type="text" name="filtercondition_set-0-condition_value" class="form-control" id="id_filtercondition_set-0-condition_value">
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-0-DELETE">Delete:</label></span>
+    
+    
+    
+    <input type="checkbox" name="filtercondition_set-0-DELETE" id="id_filtercondition_set-0-DELETE">
+    
+  </div>
+
+</td>
+  
+  
+    <td><input type="hidden" name="filtercondition_set-0-source_type" id="id_filtercondition_set-0-source_type"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-0-source_identifier" id="id_filtercondition_set-0-source_identifier"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-0-id" id="id_filtercondition_set-0-id"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-0-target_question" value="2" id="id_filtercondition_set-0-target_question"></td>
+  
+</tr>
+
+        
+        </tbody>
+      </table>
+    </div>
+
+    <button class="ddm-btn ddm-btn-inverted mt-2 mb-4" type="button" id="add-filter-condition-form"><i class="bi bi-plus"></i>&nbsp;&nbsp;Add Filter</button>
+
+    
+    <table class="d-none">
+      <tbody id="empty-filter-condition-form">
+      <tr>
+  
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-index">Index:</label></span>
+    
+    
+    
+    <input type="number" name="filtercondition_set-__prefix__-index" value="1" id="id_filtercondition_set-__prefix__-index">
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-combinator">Logic:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-__prefix__-combinator" class="w-100" id="id_filtercondition_set-__prefix__-combinator">
+  <option value="" selected>Select logic...</option>
+
+  <option value="AND">AND</option>
+
+  <option value="OR">OR</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-source">Compare to:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-__prefix__-source" class="w-100" id="id_filtercondition_set-__prefix__-source">
+  <option value="" selected>Select variable...</option>
+
+  <option value="question-3">[question, p2] q2</option>
+
+  <option value="url_parameter-_url_pid">[url] _url_pid</option>
+
+  <option value="participant-_participant_id">[participant] _participant_id</option>
+
+  <option value="participant-_start_time">[participant] _start_time</option>
+
+  <option value="participant-_end_time">[participant] _end_time</option>
+
+  <option value="participant-_completed">[participant] _completed</option>
+
+  <option value="participant-_briefing_consent">[participant] _briefing_consent</option>
+
+  <option value="donation-_donation_n_success">[donation] _donation_n_success</option>
+
+  <option value="donation-_donation_n_pending">[donation] _donation_n_pending</option>
+
+  <option value="donation-_donation_n_failed">[donation] _donation_n_failed</option>
+
+  <option value="donation-_donation_n_consent">[donation] _donation_n_consent</option>
+
+  <option value="donation-_donation_n_no_consent">[donation] _donation_n_no_consent</option>
+
+  <option value="donation-_donation_n_no_data_extracted">[donation] _donation_n_no_data_extracted</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-condition_operator">Operator:</label></span>
+    
+    
+    
+    <select name="filtercondition_set-__prefix__-condition_operator" class="w-100" id="id_filtercondition_set-__prefix__-condition_operator">
+  <option value="" selected>Select operator...</option>
+
+  <option value="==">Equal (==)</option>
+
+  <option value="!=">Not Equal (!=)</option>
+
+  <option value="&gt;">Greater than (&gt;)</option>
+
+  <option value="&lt;">Smaller than (&lt;)</option>
+
+  <option value="&gt;=">Greater than or equal (&gt;=)</option>
+
+  <option value="&lt;=">Smaller than or equal (&lt;=)</option>
+
+  <option value="contains">Contains</option>
+
+  <option value="contains_not">Does not Contain</option>
+
+</select>
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-condition_value">Value:</label></span>
+    
+    
+    
+    <input type="text" name="filtercondition_set-__prefix__-condition_value" class="form-control" id="id_filtercondition_set-__prefix__-condition_value">
+    
+  </div>
+
+</td>
+    <td>
+  <div class="form-field-wrapper mt-2 mb-2">
+    
+      <span class="d-none"><label for="id_filtercondition_set-__prefix__-DELETE">Delete:</label></span>
+    
+    
+    
+    <input type="checkbox" name="filtercondition_set-__prefix__-DELETE" id="id_filtercondition_set-__prefix__-DELETE">
+    
+  </div>
+
+</td>
+  
+  
+    <td><input type="hidden" name="filtercondition_set-__prefix__-source_type" id="id_filtercondition_set-__prefix__-source_type"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-__prefix__-source_identifier" id="id_filtercondition_set-__prefix__-source_identifier"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-__prefix__-id" id="id_filtercondition_set-__prefix__-id"></td>
+  
+    <td><input type="hidden" name="filtercondition_set-__prefix__-target_question" value="2" id="id_filtercondition_set-__prefix__-target_question"></td>
+  
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../edit/index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../edit/index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Filters"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script src="../../../../../../static/ddm_questionnaire/js/filter-conditions-form-helper.js"></script>
+
+
+<script src="../../../../../../demo-admin.js"></script>
+</body>
+
+</html>

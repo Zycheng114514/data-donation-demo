@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Edit Branding</title>
+
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <span>Branding</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Branding</h1>
+      <div class="h1-sub">
+  Customize the look of your project
+</div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  <div id="project-details" class="ddm-section-container">
+    <div class="row">
+      
+
+      
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_show_project_title"
+        name="show_project_title"
+        
+    />
+    <label class="form-check-label" for="id_show_project_title">
+      Show project title
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+      <span class="helptext">
+        If enabled, the project title is shown in the header of the participation interface.
+      </span>
+    
+
+  </div>
+
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_primary_color">Primary Color</label>
+    
+    
+    
+      <span class="helptext">Accent color used for buttons and highlights in the participation interface. Lighter/darker shades are derived automatically. Recommended to use a dark color.</span>
+    
+    <input type="text" name="primary_color" value="#007b74" class="form-control" data-coloris="" maxlength="9" required aria-describedby="id_primary_color_helptext" id="id_primary_color">
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_background_color">Background Color</label>
+    
+    
+    
+      <span class="helptext">Background color of the participation interface pages. Recommended to use a very light color.</span>
+    
+    <input type="text" name="background_color" value="#f8fafc" class="form-control" data-coloris="" maxlength="9" required aria-describedby="id_background_color_helptext" id="id_background_color">
+    
+      
+    
+  </div>
+
+
+
+      
+        
+      
+        
+      
+        
+      
+        
+
+          <div class="mb-3">
+            <p class="ddm-form-group-header mb-2">
+              Logo Header Left
+            </p>
+
+            <div>
+              
+            </div>
+
+            <div class="row">
+
+              <div class="col-auto">
+                
+                  <div class="form-image-preview form-image-preview-empty">
+                    No image selected
+                  </div>
+                
+              </div>
+              <div class="col-6">
+                <div>
+                  <label for="img_header_left-clear_id" class="fs-09">
+                    Reset
+                  </label>
+                  <input
+                    type="checkbox"
+                    name="img_header_left-clear"
+                    id="img_header_left-clear_id"
+                  />
+                </div>
+
+                <label for="formFileSm" class="form-label mt-3 fs-09">
+                  Upload new
+                </label>
+                <input
+                  class="form-control form-control-sm"
+                  type="file"
+                  name="img_header_left"
+                  id="id_img_header_left"
+                />
+              </div>
+
+            </div>
+          </div>
+
+        
+      
+        
+
+          <div class="mb-3">
+            <p class="ddm-form-group-header mb-2">
+              Logo Header Right
+            </p>
+
+            <div>
+              
+            </div>
+
+            <div class="row">
+
+              <div class="col-auto">
+                
+                  <div class="form-image-preview form-image-preview-empty">
+                    No image selected
+                  </div>
+                
+              </div>
+              <div class="col-6">
+                <div>
+                  <label for="img_header_right-clear_id" class="fs-09">
+                    Reset
+                  </label>
+                  <input
+                    type="checkbox"
+                    name="img_header_right-clear"
+                    id="img_header_right-clear_id"
+                  />
+                </div>
+
+                <label for="formFileSm" class="form-label mt-3 fs-09">
+                  Upload new
+                </label>
+                <input
+                  class="form-control form-control-sm"
+                  type="file"
+                  name="img_header_right"
+                  id="id_img_header_right"
+                />
+              </div>
+
+            </div>
+          </div>
+
+        
+      
+
+    </div>
+  </div>
+
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Project"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+
+<script src="../../../../demo-admin.js"></script>
+</body>
+
+</html>

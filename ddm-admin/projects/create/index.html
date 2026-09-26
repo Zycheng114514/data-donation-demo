@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Create New Project</title>
+
+  <link rel="stylesheet" href="../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <span>Create New Project</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Create New Project</h1>
+      <div class="h1-sub"></div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      <link href="../../static/django_ckeditor_5/dist/styles.css" media="all" rel="stylesheet">
+<script src="../../static/django_ckeditor_5/dist/bundle.js"></script>
+
+      
+
+  <div id="project-create-section" class="ddm-section-container">
+    <div class="row">
+      
+      <input type="hidden" name="owner" value="1" id="id_owner">
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_name">Name</label>
+    
+    
+    
+      <span class="helptext">Visible to participants (e.g., &quot;TikTok Project&quot;)</span>
+    
+    <input type="text" name="name" maxlength="50" required aria-describedby="id_name_helptext" id="id_name">
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_slug">URL Identifier</label>
+    
+    
+    
+      <span class="helptext">Used in the participant URL (e.g., <code>root.url/<span class="fw-bold">my-url-identifier</span></code>). Letters, numbers, hyphens, and underscores only.</span>
+    
+    <input type="text" name="slug" maxlength="50" required aria-describedby="id_slug_helptext" id="id_slug">
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_contact_information">Contact information</label>
+    
+    
+    
+      <span class="helptext">Provide contact information of the project lead (name, professional address, email, tel, ...)</span>
+    
+    <div class="ck-editor-container">
+<textarea  name="contact_information" class="django_ckeditor_5" required aria-describedby="id_contact_information_helptext" id="id_contact_information">
+</textarea>
+<span class="word-count" id="id_contact_information_script-word-count"></span>
+
+</div>
+<input type="hidden" id="id_contact_information_script-ck-editor-5-upload-url" data-upload-url="demo:off" data-upload-file-types="[&quot;jpeg&quot;, &quot;pdf&quot;, &quot;png&quot;, &quot;mp4&quot;]" data-csrf_cookie_name="csrftoken">
+
+<span id="id_contact_information_script-span"><script id="id_contact_information_script" type="application/json">{"toolbar": ["heading", "|", "alignment", "outdent", "indent", "|", "bold", "italic", "underline", "link", "highlight", "|", {"label": "Fonts", "icon": "text", "items": ["fontSize", "fontFamily", "fontColor"]}, "|", "bulletedList", "numberedList", "insertTable", "blockQuote", "code", "removeFormat", "|", "insertImage", "fileUpload", "mediaEmbed", "|", "sourceEditing"], "blockToolbar": ["paragraph", "heading1", "heading2", "heading3", "|", "bulletedList", "numberedList", "|", "blockQuote"], "image": {"toolbar": ["imageTextAlternative", "|", "imageStyle:alignLeft", "imageStyle:alignRight", "imageStyle:alignCenter", "imageStyle:side", "|"], "styles": ["full", "side", "alignLeft", "alignRight", "alignCenter"]}, "table": {"contentToolbar": ["tableColumn", "tableRow", "mergeTableCells", "tableProperties", "tableCellProperties"]}, "heading": {"options": [{"model": "paragraph", "title": "Paragraph", "class": "ck-heading_paragraph"}, {"model": "heading1", "view": "h1", "title": "Heading 1", "class": "ck-heading_heading1"}, {"model": "heading2", "view": "h2", "title": "Heading 2", "class": "ck-heading_heading2"}, {"model": "heading3", "view": "h3", "title": "Heading 3", "class": "ck-heading_heading3"}]}, "htmlSupport": {"allow": [{"name": "video", "attributes": {"height": true, "width": true, "controls": true}, "styles": true}], "disallow": []}, "wordCount": {"displayCharacters": false, "displayWords": false}}</script></span>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_data_protection_statement">Data Protection Statement</label>
+    
+    
+    
+      <span class="helptext">Provide your data protection statement (purpose of data collection, how the data will be stored, who has access, retention times etc.)</span>
+    
+    <div class="ck-editor-container">
+<textarea  name="data_protection_statement" class="django_ckeditor_5" required aria-describedby="id_data_protection_statement_helptext" id="id_data_protection_statement">
+</textarea>
+<span class="word-count" id="id_data_protection_statement_script-word-count"></span>
+
+</div>
+<input type="hidden" id="id_data_protection_statement_script-ck-editor-5-upload-url" data-upload-url="demo:off" data-upload-file-types="[&quot;jpeg&quot;, &quot;pdf&quot;, &quot;png&quot;, &quot;mp4&quot;]" data-csrf_cookie_name="csrftoken">
+
+<span id="id_data_protection_statement_script-span"><script id="id_data_protection_statement_script" type="application/json">{"toolbar": ["heading", "|", "alignment", "outdent", "indent", "|", "bold", "italic", "underline", "link", "highlight", "|", {"label": "Fonts", "icon": "text", "items": ["fontSize", "fontFamily", "fontColor"]}, "|", "bulletedList", "numberedList", "insertTable", "blockQuote", "code", "removeFormat", "|", "insertImage", "fileUpload", "mediaEmbed", "|", "sourceEditing"], "blockToolbar": ["paragraph", "heading1", "heading2", "heading3", "|", "bulletedList", "numberedList", "|", "blockQuote"], "image": {"toolbar": ["imageTextAlternative", "|", "imageStyle:alignLeft", "imageStyle:alignRight", "imageStyle:alignCenter", "imageStyle:side", "|"], "styles": ["full", "side", "alignLeft", "alignRight", "alignCenter"]}, "table": {"contentToolbar": ["tableColumn", "tableRow", "mergeTableCells", "tableProperties", "tableCellProperties"]}, "heading": {"options": [{"model": "paragraph", "title": "Paragraph", "class": "ck-heading_paragraph"}, {"model": "heading1", "view": "h1", "title": "Heading 1", "class": "ck-heading_heading1"}, {"model": "heading2", "view": "h2", "title": "Heading 2", "class": "ck-heading_heading2"}, {"model": "heading3", "view": "h3", "title": "Heading 3", "class": "ck-heading_heading3"}]}, "htmlSupport": {"allow": [{"name": "video", "attributes": {"height": true, "width": true, "controls": true}, "styles": true}], "disallow": []}, "wordCount": {"displayCharacters": false, "displayWords": false}}</script></span>
+    
+      
+    
+  </div>
+
+
+
+      
+        <div class="ddm-accordion-item mb-4 narrow-accordion">
+
+  <div class="ddm-accordion-header" id="headingadvancedOptionsAcc">
+    <button class="ddm-accordion-btn collapsed"
+            type="button"
+            id="accordionButtonadvancedOptionsAcc"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseadvancedOptionsAcc"
+            aria-expanded="false"
+            aria-controls="collapseadvancedOptionsAcc"
+            
+    >
+    <span>
+      <span class="ddm-accordion-title w-100">Advanced Options</span>
+      
+    </span>
+
+    </button>
+  </div>
+
+  <div id="collapseadvancedOptionsAcc"
+       class="accordion-collapse ddm-accordion-collapse collapse "
+       aria-labelledby="headingadvancedOptionsAcc"
+  >
+    <div>
+      <div>
+
+  <p class="ddm-form-group-header">Enhanced Encryption</p>
+
+  <p>
+    All collected data (data donations and questionnaire responses) are encrypted and stored securely by default.
+    For projects handling highly sensitive information (e.g., health records),
+    you can add an extra layer of protection by encrypting data with a password only you know.
+  </p>
+
+  <p class="mt-2">Before enabling, note that:</p>
+
+  <ul>
+    <li>You must enter the password each time you access the data</li>
+    <li>Questions cannot reference donated data</li>
+    <li>This setting cannot be changed after project creation</li>
+    <li>There is no way of resetting your encryption password in the case you loose it</li>
+  </ul>
+
+  <p class="fc-red">Most projects do not need this option.</p>
+
+  <hr />
+
+  <div class="mt-3">
+    
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_super_secret"
+        name="super_secret"
+        
+    />
+    <label class="form-check-label" for="id_super_secret">
+      Enable enhanced encryption
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+
+    <div id="secret-definition">
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_project_password">Project password</label>
+    
+    
+    
+    <input type="password" name="project_password" maxlength="150" minlength="10" id="id_project_password">
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_project_password_confirm">Project password confirm</label>
+    
+    
+    
+    <input type="password" name="project_password_confirm" maxlength="150" minlength="10" id="id_project_password_confirm">
+    
+  </div>
+
+
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+</div>
+
+      
+
+    </div>
+  </div>
+
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Create Project"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../static/ddm_core/js/messages.js"></script>
+  <script src="../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script src="../../static/ddm_projects/js/project-create-utils.js"></script>
+
+
+<script src="../../demo-admin.js"></script>
+</body>
+
+</html>

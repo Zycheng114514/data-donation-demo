@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Edit Uploader Translations</title>
+
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../data-donation/index.html">Data Donation</a><i class="bi bi-chevron-right"></i>
+
+  <span>Uploader Translations</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Uploader Translations</h1>
+      <div class="h1-sub">
+  Override default text included in the donation interface or add translations for additional languages.
+</div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  <div id="project-translations-section" class="ddm-section-container">
+    <div class="row">
+      <div>
+        
+
+          
+  <div class="form-field-wrapper ">
+    
+      <label for="id_custom_uploader_translations">Custom uploader translations</label>
+    
+    
+    
+      <span class="helptext">Advanced option to overwrite default phrases and translations used in the data donation interface. Must be a dictionary with the locale shortcuts as keys (e.g., &quot;de&quot; or &quot;en&quot;) associated to a dictionary holding the translations. Placeholders in overridden phrases must use simple &quot;{param}&quot; substitution, matching the defaults being overwritten; other formatting syntax (e.g., pluralization or linked messages) is not supported.</span>
+    
+    <textarea name="custom_uploader_translations" cols="40" rows="25" class="w-100" aria-describedby="id_custom_uploader_translations_helptext" id="id_custom_uploader_translations">
+{}</textarea><input type="hidden" name="initial-custom_uploader_translations" value="{}" aria-describedby="id_custom_uploader_translations_helptext" id="initial-id_custom_uploader_translations">
+    
+      
+    
+  </div>
+
+
+
+          <p class="pb-3">
+            For example, the donation consent question can be changed by setting the custom translations to:
+            <code>{"en": {"feedback": {"donation-question": "custom english question"}}, "de": {"feedback": {"donation-question": "custom german question"}}}</code>
+          </p>
+
+          <p>
+            Below you can see the structure of the original translation file to identify the keys you
+            want to overwrite.
+          </p>
+        
+      </div>
+    </div>
+
+    <div class="pt-2">
+      
+        <div class="ddm-info-collapsible ">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-ulbps">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-ulbps"
+            aria-expanded="false"
+            aria-controls="info-collapsible-ulbps"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;See original translations
+    </button>
+  </div>
+
+  <div id="info-collapsible-ulbps"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-ulbps"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <pre>{
+    "de": {
+        "step-indicator": {
+            "step": "Schritt",
+            "instructions": "Anleitung",
+            "upload": "Daten hochladen",
+            "review-and-consent": "Prüfen & übermitteln",
+            "button-next": "Weiter",
+            "button-prev": "Zurück"
+        },
+        "instructions": {
+            "heading": "So funktioniert es",
+            "back": "Zurück",
+            "next-page": "Nächste Seite",
+            "end": "Ende",
+            "start": "Anfang"
+        },
+        "errors": {
+            "invalid-zip": "Eine ZIP-Datei wurde erwartet, aber eine {fileType}-Datei wurde hochgeladen.",
+            "zip-read-fail": "ZIP-Archiv konnte nicht gelesen werden",
+            "invalid-regex": "Ungültiger regulärer Ausdruck (regex)",
+            "invalid-rule-regex": "Der Feldname '{ruleRegex}' der Extraction Rule {ruleId} konnte nicht korrekt in eine RegEx umgewandelt werden.",
+            "invalid-field-regex": "Der Name '{fieldExpectedName}' konnte nicht korrekt in eine RegEx umgewandelt werden.",
+            "no-file-match": "Diese Datei konnte im ausgewählten ZIP-Container nicht gefunden werden.",
+            "no-file-match-detail": "Keine Datei konnte mit dem folgenden Muster identifiziert werden: \n '{regexPath}' \n \n Verfügbare Dateien im ZIP-Container: \n {availableFiles}",
+            "file-processing-fail-general": "Beim Verarbeiten des Datei-Inhalts ist ein Fehler aufgetreten",
+            "file-processing-fail-general-detail": "Der folgende Fehler trat auf: {error}",
+            "string-conversion-error": "Dateiinhalt kann nicht in einen Text (String) umgewandelt werden",
+            "no-fields-to-extract": "Es wurden keine Felder/Variablen definiert, die ausgelesen werden sollen.",
+            "parsing-error": "Es trat ein Fehler beim Parsen von {contentType}-Inhalt für diese Datei auf",
+            "parsing-error-detail": "Der folgende Fehler trat auf: {error}",
+            "unsupported-bp-format": "Nicht unterstütztes Dateiformat: {format}",
+            "nested-path-not-found": "Das Feld „{nestedLoopPath}“ wurde in einem Eintrag nicht gefunden. Für diesen Eintrag konnten daher keine weiteren Zeilen extrahiert werden.",
+            "extraction-root-not-found": "Der für diesen Datentyp konfigurierte Extraktionspfad „{extractionRoot}“ wurde in der Datei nicht gefunden.",
+            "more-than-one-key-match": "Mehr als eine Übereinstimmung für Feld '{field}': {keys}. Es wurde standardmäßig '{defaultKey}' verwendet",
+            "no-key-match": "Keine Übereinstimmung für Feld '{field}': {keys}",
+            "undefined-key": "Undefinierter Name für Feld '{field}'"
+        },
+        "file-drop": {
+            "heading": "Datei auswählen",
+            "selection-prompt": "Datei hierher ziehen oder klicken um Datei auszuwählen",
+            "release-to-select": "Loslassen, um Datei auszuwählen",
+            "file-is-being-processed": "Datei wird verarbeitet…",
+            "processing-complete": "Verarbeitung abgeschlossen",
+            "processing-success": "Datei erfolgreich verarbeitet",
+            "choose-different-file": "neue Datei auswählen",
+            "something-went-wrong": "Bei der Verarbeitung der Datei ging etwas schief",
+            "retry-hint": "Eine andere Datei auswählen, um es erneut zu versuchen.",
+            "relevant-data-hint": "Nur die für die Studie relevanten Daten werden ausgelesen.",
+            "upload-info": "Ihre Datei wird lokal in Ihrem Browser verarbeitet und vor Ihrer expliziten Zustimmung werden keine Daten an das Projekt übermittelt. Im nächsten Schritt können Sie die ausgelesenen Daten anschauen und entscheiden, ob Sie sie übermitteln möchten."
+        },
+        "extraction-state": {
+            "file": {
+                "success": "Auf der nächsten Seite werden die ausgelesenen Daten angezeigt.",
+                "no-data-extracted": "Es konnten keine Informationen aus der Datei ausgelesen werden."
+            },
+            "blueprint": {
+                "success": "Daten erfolgreich ausgelesen.",
+                "no-data-extracted": "Keine relevanten Daten in der Datei gefunden.",
+                "all-missing-fields": "Alle Einträge in der Datei sind unvollständig und können nicht ausgelesen werden.",
+                "all-filtered-out": "Alle Einträge wurden aufgrund der gewählten Filter-Kriterien ausgeschlossen.",
+                "failed": "Es konnten keine Daten ausgelesen werden, aufgrund von folgenden Problemen:"
+            }
+        },
+        "feedback": {
+            "check-data-heading": "Ausgelesene Daten prüfen",
+            "intro-extraction-pending": "Die folgenden Daten werden ausgelesen",
+            "intro-extraction-complete": "Die folgenden Daten wurden ausgelesen und werden bei Zustimmung übermittelt",
+            "intro-nothing-extracted": "Es wurden keine Daten ausgelesen",
+            "show-error-details": "Details anzeigen",
+            "donation-question": "Diese Daten spenden?",
+            "donation-question-with-deletion": "Die ausgewählten Daten spenden?",
+            "donation-question-combined": "Möchten Sie die oben gelisteten Daten spenden?",
+            "donation-question-combined-with-deletion": "Möchten Sie die oben ausgewählten Daten spenden?",
+            "donation-agree": "Ja",
+            "donation-disagree": "Nein",
+            "details": "Details",
+            "x-elements-found": "Es wurden {nEntries} Einträge gefunden",
+            "x-elements-found-nested": "Es wurden {nElements} Elemente und insgesamt {nEntries} Einträge gefunden",
+            "element": "Element",
+            "nothing-extracted-header": "Datentypen ohne ausgelesene Daten"
+        },
+        "extraction-table": {
+            "entry-info": "Einträge {lower}-{upper} von {total} werden angezeigt",
+            "donation-info": "Wenn Sie der Datenspende zustimmen, werden die folgenden Daten übermittelt:",
+            "search-entries": "Einträge durchsuchen...",
+            "search-entries-on-element": "Dieses Element durchsuchen...",
+            "search-elements": "Alle Elemente durchsuchen...",
+            "search-elements-info": "Der Begriff wurde in {nElements} von {nTotal} Elementen gefunden",
+            "all-filtered": "Keine Einträge gefunden",
+            "show-data": "alle Daten anzeigen",
+            "hide-data": "weniger anzeigen",
+            "page": "Seite",
+            "more-entries": "weitere Einträge",
+            "show-complete-list": "vollständige Liste anzeigen",
+            "modal-close": "Schliessen",
+            "group-nav": "Element {current} von {total}",
+            "remove-element": "Dieses Element nicht spenden",
+            "restore-element": "Dieses Element spenden",
+            "element-kept": "Dieses Element wird übermittelt",
+            "element-removed": "Dieses Element wird nicht übermittelt",
+            "total": "total"
+        },
+        "uploader-app": {
+            "next-btn": "Weiter"
+        },
+        "issue-modal": {
+            "title": "Datenspende wurde nicht abgeschlossen",
+            "none-attempted": "Es wurden keine Dateien hochgeladen. Ohne Datenspende fortfahren?",
+            "not-all-attempted": "Einige Uploads wurden übersprungen: {skipped-uploads}.  Mit den bisher verarbeiteten Dateien fortfahren?",
+            "not-all-consented": "Es muss für alle ausgelesenen Daten angegeben werden, ob diese übermittelt werden dürfen. \n \n Für die folgenden Daten fehlt diese Information noch: {blueprints-wo-consent}.",
+            "failed-uploaders": "Die folgenden Uploads scheinen nicht funktioniert zu haben: {uploads}. Trotzdem fortfahren?",
+            "continue-anyway": "Trotzdem fortfahren",
+            "back": "Zurück"
+        },
+        "submitting-modal": {
+            "submit-wait": "Die Datenspende wird verarbeitet..."
+        },
+        "general": {
+            "step": "Schritt"
+        }
+    },
+    "en": {
+        "step-indicator": {
+            "step": "Step",
+            "instructions": "Instructions",
+            "upload": "Upload data",
+            "review-and-consent": "Review & submit",
+            "button-next": "Next",
+            "button-prev": "Back"
+        },
+        "instructions": {
+            "heading": "How it works",
+            "back": "Back",
+            "next-page": "Next page",
+            "end": "End",
+            "start": "Start"
+        },
+        "errors": {
+            "invalid-zip": "A ZIP-file was expected but a {fileType}-file was uploaded.",
+            "zip-read-fail": "Failed to read ZIP archive",
+            "invalid-regex": "Invalid regex",
+            "invalid-rule-regex": "The field name '{ruleRegex}' of extraction rule {ruleId} could not be parsed as regex.",
+            "invalid-field-regex": "The field name '{fieldExpectedName}' could not be parsed as regex.",
+            "no-file-match": "The selected ZIP-container did not contain the correct file.",
+            "no-file-match-detail": "We tried to identify the file using the following pattern: \n '{regexPath}' \n \n Available files in the container: \n {availableFiles}",
+            "file-processing-fail-general": "An error occurred during processing the file content.",
+            "file-processing-fail-general-detail": "The following error occurred: {error}",
+            "string-conversion-error": "File content cannot be converted to string",
+            "no-fields-to-extract": "No fields defined that should be kept in the data donation.",
+            "parsing-error": "Failed to parse {contentType} content for this file.",
+            "parsing-error-detail": "The following error occurred: {error}",
+            "unsupported-bp-format": "Unsupported content format: {format}",
+            "nested-path-not-found": "The field '{nestedLoopPath}' wasn't found in one of the entries, so no additional rows could be extracted for it.",
+            "extraction-root-not-found": "The extraction root '{extractionRoot}' configured for this blueprint was not found in the file.",
+            "more-than-one-key-match": "More than one key match for field '{field}': {keys}. Defaulted to {defaultKey}",
+            "no-key-match": "No key match for field '{field}': {keys}",
+            "undefined-key": "Undefined key for field '{field}'"
+        },
+        "file-drop": {
+            "heading": "Select file",
+            "selection-prompt": "Drag and drop a file here, or click to select one",
+            "release-to-select": "Drop the file to continue",
+            "file-is-being-processed": "Processing your file...",
+            "processing-complete": "Processing complete",
+            "processing-success": "File successfully processed",
+            "choose-different-file": "select a different file",
+            "something-went-wrong": "Something went wrong while processing the file",
+            "retry-hint": "Select a different file to try again.",
+            "relevant-data-hint": "Only data relevant to the study will be extracted.",
+            "upload-info": "Your file is processed locally in your browser, and no data is transmitted to the project before you explicitly consent. In the next step, you can review the extracted data and decide whether to submit it."
+        },
+        "extraction-state": {
+            "file": {
+                "success": "In the next step you can see which data were extracted.",
+                "no-data-extracted": "No information could be extracted from the file."
+            },
+            "blueprint": {
+                "success": "Your data has been successfully extracted",
+                "no-data-extracted": "No relevant data found in the file.",
+                "all-missing-fields": "Required information was missing from all entries in the file.",
+                "all-filtered-out": "All entries in the file were excluded based on the filtering criteria.",
+                "failed": "Data could not be extracted due to the following issue(s):"
+            }
+        },
+        "feedback": {
+            "check-data-heading": "Review extracted data",
+            "intro-extraction-pending": "Data to be extracted",
+            "intro-extraction-complete": "The following data has been extracted and will be submitted if you consent.",
+            "intro-nothing-extracted": "No data was extracted",
+            "show-error-details": "Show details",
+            "donation-question": "Donate this data?",
+            "donation-question-with-deletion": "Donate the selected data?",
+            "donation-question-combined": "Donate the data listed above?",
+            "donation-question-combined-with-deletion": "Donate the selected data above?",
+            "donation-agree": "Yes",
+            "donation-disagree": "No",
+            "details": "Details",
+            "x-elements-found": "Found {nEntries} entries",
+            "x-elements-found-nested": "Found {nElements} elements and {nEntries} entries in total",
+            "element": "Element",
+            "nothing-extracted-header": "Data types without extracted data"
+        },
+        "extraction-table": {
+            "entry-info": "Entries {lower}-{upper} of {total}",
+            "donation-info": "If you consent to the donation, the following data will be submitted:",
+            "search-entries": "Search entries...",
+            "search-entries-on-element": "Search this element...",
+            "search-elements": "Search all elements...",
+            "search-elements-info": "The term was found in {nElements} of {nTotal} elements",
+            "all-filtered": "No entries found",
+            "show-data": "Show all data",
+            "hide-data": "Show less",
+            "page": "Page",
+            "more-entries": "more entries",
+            "show-complete-list": "show complete list",
+            "modal-close": "Close",
+            "group-nav": "Entry {current} of {total}",
+            "remove-element": "Remove this element from my donation",
+            "restore-element": "Keep this element in my donation",
+            "element-kept": "This element will be included in your donation.",
+            "element-removed": "This element will not be included in your donation.",
+            "total": "total"
+        },
+        "uploader-app": {
+            "next-btn": "Next"
+        },
+        "issue-modal": {
+            "title": "Data donation not complete",
+            "none-attempted": "You have not uploaded any files. Continue without a donation?",
+            "not-all-attempted": "Some uploads were skipped: {skipped-uploads}. Continue with the files processed so far?",
+            "not-all-consented": "For some extracted data, it was not indicated whether these may be transmitted: {blueprints-wo-consent}. \n \n Please go back to review.",
+            "failed-uploaders": "The following uploads appear to have failed: {uploads}. Continue anyway?",
+            "continue-anyway": "Yes, continue anyway",
+            "back": "Go back"
+        },
+        "submitting-modal": {
+            "submit-wait": "Processing your data donation..."
+        },
+        "general": {
+            "step": "Step"
+        }
+    },
+    "it": {
+        "step-indicator": {
+            "step": "Passaggio",
+            "instructions": "Istruzioni",
+            "upload": "Caricare i dati",
+            "review-and-consent": "Verifica e invio",
+            "button-next": "Avanti",
+            "button-prev": "Indietro"
+        },
+        "instructions": {
+            "heading": "Come funziona",
+            "back": "Indietro",
+            "next-page": "Pagina successiva",
+            "end": "Fine",
+            "start": "Inizio"
+        },
+        "errors": {
+            "invalid-zip": "Era atteso un file ZIP, ma è stato caricato un file {fileType}.",
+            "zip-read-fail": "Impossibile leggere l'archivio ZIP",
+            "invalid-regex": "Espressione regolare (regex) non valida",
+            "invalid-rule-regex": "Il nome del campo '{ruleRegex}' della regola di estrazione {ruleId} non è stato convertito correttamente in regex.",
+            "invalid-field-regex": "Il nome del campo '{fieldExpectedName}' non è stato convertito correttamente in regex.",
+            "no-file-match": "Questo file non è stato trovato nel contenitore ZIP selezionato.",
+            "no-file-match-detail": "Nessun file è stato identificato con il seguente modello: \n '{regexPath}' \n \n File disponibili nel contenitore ZIP: \n {availableFiles}",
+            "file-processing-fail-general": "Si è verificato un errore durante l'elaborazione del contenuto del file",
+            "file-processing-fail-general-detail": "Si è verificato il seguente errore: {error}",
+            "string-conversion-error": "Il contenuto del file non può essere convertito in testo (string)",
+            "no-fields-to-extract": "Non sono state definite variabili da includere nella donazione di dati.",
+            "parsing-error": "Si è verificato un errore durante il parsing del contenuto {contentType} di questo file",
+            "parsing-error-detail": "Si è verificato il seguente errore: {error}",
+            "unsupported-bp-format": "Formato file non supportato: {format}",
+            "nested-path-not-found": "Il campo «{nestedLoopPath}» non è stato trovato in una voce, quindi non è stato possibile estrarre righe aggiuntive per essa.",
+            "extraction-root-not-found": "La radice di estrazione «{extractionRoot}» configurata per questo tipo di dati non è stata trovata nel file.",
+            "more-than-one-key-match": "Più di una corrispondenza per il campo '{field}': {keys}. È stato utilizzato '{defaultKey}' per impostazione predefinita",
+            "no-key-match": "Nessuna corrispondenza per il campo '{field}': {keys}",
+            "undefined-key": "Nome non definito per il campo '{field}'"
+        },
+        "file-drop": {
+            "heading": "Seleziona file",
+            "selection-prompt": "Trascina un file qui, oppure clicca per selezionarne uno",
+            "release-to-select": "Rilascia per selezionare il file",
+            "file-is-being-processed": "Elaborazione del file in corso…",
+            "processing-complete": "Elaborazione completata",
+            "processing-success": "File elaborato con successo",
+            "choose-different-file": "Seleziona un file diverso",
+            "something-went-wrong": "Si è verificato un errore durante l'elaborazione del file",
+            "retry-hint": "Seleziona un file diverso per riprovare.",
+            "relevant-data-hint": "Verranno estratti solo i dati rilevanti per lo studio.",
+            "upload-info": "Il file viene elaborato localmente nel browser e nessun dato viene trasmesso al progetto prima del suo consenso esplicito. Nel passaggio successivo potrà visualizzare i dati estratti e decidere se trasmetterli."
+        },
+        "extraction-state": {
+            "file": {
+                "success": "Nella pagina seguente vengono visualizzati i dati estratti.",
+                "no-data-extracted": "Non è stato possibile estrarre informazioni dal file."
+            },
+            "blueprint": {
+                "success": "Dati estratti con successo.",
+                "no-data-extracted": "Nessun dato rilevante trovato nel file.",
+                "all-missing-fields": "Tutti i record nel file sono incompleti e non possono essere estratti.",
+                "all-filtered-out": "Tutti i record sono stati esclusi in base ai criteri di filtro selezionati.",
+                "failed": "Non è stato possibile estrarre i dati a causa dei seguenti errori:"
+            }
+        },
+        "feedback": {
+            "check-data-heading": "Verifica dei dati estratti",
+            "intro-extraction-pending": "I seguenti dati verranno estratti",
+            "intro-extraction-complete": "I seguenti dati sono stati estratti e verranno trasmessi previo consenso.",
+            "intro-nothing-extracted": "Non è stato estratto alcun dato",
+            "show-error-details": "Mostra dettagli",
+            "donation-question": "Donare questi dati?",
+            "donation-question-with-deletion": "Donare i dati selezionati?",
+            "donation-question-combined": "Vuole donare questi dati?",
+            "donation-question-combined-with-deletion": "Vuole donare i dati selezionati sopra?",
+            "donation-agree": "Sì",
+            "donation-disagree": "No",
+            "details": "Dettagli",
+            "x-elements-found": "{nEntries} record trovati",
+            "x-elements-found-nested": "Trovati {nElements} elementi, per un totale di {nEntries} record",
+            "element": "Elemento",
+            "nothing-extracted-header": "Tipi di dati senza risultati"
+        },
+        "extraction-table": {
+            "entry-info": "Visualizzazione dei record {lower}-{upper} su {total}",
+            "donation-info": "Se acconsente alla donazione dei dati, verranno trasmessi i seguenti dati:",
+            "search-entries": "Cerca record...",
+            "search-entries-on-element": "Cerca in questo elemento...",
+            "search-elements": "Cerca in tutti i elemento...",
+            "search-elements-info": "Il termine è stato trovato in {nElements} elementi su {nTotal}",
+            "all-filtered": "Nessun record trovato",
+            "show-data": "mostra tutti i dati",
+            "hide-data": "mostra meno",
+            "page": "Pagina",
+            "more-entries": "altri record",
+            "show-complete-list": "mostra elenco completo",
+            "modal-close": "Chiudi",
+            "group-nav": "Elemento {current} di {total}",
+            "remove-element": "Rimuovi questo elemento dalla mia donazione",
+            "restore-element": "Mantieni questo elemento nella mia donazione",
+            "element-kept": "Questo elemento verrà trasmesso.",
+            "element-removed": "Questo elemento non sarà incluso nella tua donazione.",
+            "total": "totale"
+        },
+        "uploader-app": {
+            "next-btn": "Avanti"
+        },
+        "issue-modal": {
+            "title": "Donazione dei dati non completata",
+            "none-attempted": "Non è stato caricato alcun file. \n \n Continuare senza donazione dei dati?",
+            "not-all-attempted": "Alcuni caricamenti sono stati saltati: {skipped-uploads}. \n \n Continuare con i file elaborati finora?",
+            "not-all-consented": "Per alcuni dati non è stato indicato se possono essere trasmessi: {blueprints-wo-consent}. \n \n La preghiamo di verificare.",
+            "failed-uploaders": "I seguenti caricamenti sembrano non aver funzionato: {uploads}. \n \n Continuare comunque?",
+            "continue-anyway": "Continua comunque",
+            "back": "Indietro"
+        },
+        "submitting-modal": {
+            "submit-wait": "Elaborazione della donazione dei dati in corso..."
+        },
+        "general": {
+            "step": "Passaggio"
+        }
+    },
+    "fr": {
+        "step-indicator": {
+            "step": "Étape",
+            "instructions": "Instructions",
+            "upload": "Téléverser des données",
+            "review-and-consent": "Vérifier et soumettre",
+            "button-next": "Suivant",
+            "button-prev": "Précédent"
+        },
+        "instructions": {
+            "heading": "Comment ça fonctionne",
+            "back": "Précédent",
+            "next-page": "Page suivante",
+            "end": "Fin",
+            "start": "Début"
+        },
+        "errors": {
+            "invalid-zip": "Un fichier ZIP était attendu, mais un fichier {fileType} a été téléchargé.",
+            "zip-read-fail": "Impossible de lire l'archive ZIP",
+            "invalid-regex": "Expression régulière (regex) non valide",
+            "invalid-rule-regex": "Le nom de champ '{ruleRegex}' de la règle d'extraction {ruleId} n'a pas pu être correctement converti en regex.",
+            "invalid-field-regex": "Le nom '{fieldExpectedName}' n'a pas pu être correctement converti en regex.",
+            "no-file-match": "Ce fichier n'a pas pu être trouvé dans le fichier ZIP sélectionné.",
+            "no-file-match-detail": "Aucun fichier ne correspond au modèle suivant : \n « {regexPath} » \n \n Fichiers disponibles dans le ZIP : \n {availableFiles}",
+            "file-processing-fail-general": "Une erreur s'est produite lors du traitement du contenu du fichier",
+            "file-processing-fail-general-detail": "L'erreur suivante s'est produite : {error}",
+            "string-conversion-error": "Le contenu du fichier ne peut pas être converti en texte (string)",
+            "no-fields-to-extract": "Aucune variable d'extraction n'a été définie comme devant être conservé",
+            "parsing-error": "Une erreur s'est produite lors de l’analyse du contenu {contentType} de ce fichier",
+            "parsing-error-detail": "L'erreur suivante s'est produite : {error}",
+            "unsupported-bp-format": "Format de fichier non pris en charge : {format}",
+            "nested-path-not-found": "Le champ « {nestedLoopPath} » n'a pas été trouvé dans une entrée. Aucune ligne supplémentaire n'a donc pu être extraite pour celle-ci.",
+            "extraction-root-not-found": "La racine d'extraction « {extractionRoot} » configurée pour ce type de données n'a pas été trouvée dans le fichier.",
+            "more-than-one-key-match": "Plus d'une correspondance pour le champ '{field}' : {keys}. '{defaultKey}' a été utilisé par défaut",
+            "no-key-match": "Aucune correspondance pour le champ '{field}' : {keys}",
+            "undefined-key": "Nom non défini pour le champ '{field}'"
+        },
+        "file-drop": {
+            "heading": "Sélectionner un fichier",
+            "selection-prompt": "Glissez-déposez un fichier ici, ou cliquez pour en sélectionner un",
+            "release-to-select": "Relâchez pour sélectionner le fichier",
+            "file-is-being-processed": "Traitement du fichier en cours…",
+            "processing-complete": "Traitement terminé",
+            "processing-success": "Fichier traité avec succès",
+            "choose-different-file": "sélectionner un autre fichier",
+            "something-went-wrong": "Une erreur s'est produite lors du traitement du fichier",
+            "retry-hint": "Sélectionnez un autre fichier pour réessayer.",
+            "relevant-data-hint": "Seules les données pertinentes pour l'étude seront extraites.",
+            "upload-info": "Votre fichier est traité localement dans votre navigateur, et aucune donnée n'est transmise au projet avant votre consentement explicite. À l'étape suivante, vous pourrez consulter les données extraites et décider si vous souhaitez les transmettre."
+        },
+        "extraction-state": {
+            "file": {
+                "success": "Les données extraites sont affichées à la page suivante.",
+                "no-data-extracted": "Aucune information n'a pu être extraite du fichier."
+            },
+            "blueprint": {
+                "success": "Données extraites avec succès.",
+                "no-data-extracted": "Aucune donnée pertinente trouvée dans le fichier.",
+                "all-missing-fields": "Toutes les entrées du fichier sont incomplètes et ne peuvent pas être extraites.",
+                "all-filtered-out": "Toutes les entrées ont été exclues en raison des critères de filtrage sélectionnés.",
+                "failed": "Les données n'ont pas pu être extraites en raison des erreurs suivantes :"
+            }
+        },
+        "feedback": {
+            "check-data-heading": "Vérifier les données extraites",
+            "intro-extraction-pending": "Les données suivantes seront extraites",
+            "intro-extraction-complete": "Les données suivantes ont été extraites et seront transmises si vous y consentez.",
+            "intro-nothing-extracted": "Aucune donnée n'a été extraite",
+            "show-error-details": "Afficher les détails",
+            "donation-question": "Faire don de ces données ?",
+            "donation-question-with-deletion": "Faire don des données sélectionnées ?",
+            "donation-question-combined": "Souhaitez-vous faire don de ces données et de les transmettre ?",
+            "donation-question-combined-with-deletion": "Souhaitez-vous faire don des données sélectionnées ci-dessus ?",
+            "donation-agree": "Oui",
+            "donation-disagree": "Non",
+            "details": "Détails",
+            "x-elements-found": "{nEntries} entrées trouvées",
+            "x-elements-found-nested": "{nElements} éléments trouvés, pour un total de {nEntries} entrées",
+            "element": "Élément",
+            "nothing-extracted-header": "Types de données sans résultats extraits"
+        },
+        "extraction-table": {
+            "entry-info": "Affichage des entrées {lower}-{upper} sur {total}",
+            "donation-info": "Si vous consentez au don de données, les données suivantes seront transmises :",
+            "search-entries": "Rechercher des entrées...",
+            "search-entries-on-element": "Rechercher dans cette entrée...",
+            "search-elements": "Rechercher dans toutes les éléments...",
+            "search-elements-info": "Le terme a été trouvé dans {nElements} éléments sur {nTotal}",
+            "all-filtered": "Aucune entrée trouvée",
+            "show-data": "afficher toutes les données",
+            "hide-data": "afficher moins",
+            "page": "Page",
+            "more-entries": "entrées supplémentaires",
+            "show-complete-list": "afficher la liste complète",
+            "modal-close": "Fermer",
+            "group-nav": "Élément {current} sur {total}",
+            "remove-element": "Retirer cette élément de mon don",
+            "restore-element": "Conserver cette élément dans mon don",
+            "element-kept": "Cette élément sera transmise.",
+            "element-removed": "Cette élément ne sera pas incluse dans votre don.",
+            "total": "total"
+        },
+        "uploader-app": {
+            "next-btn": "Suivant"
+        },
+        "issue-modal": {
+            "title": "Le don de données n'a pas été finalisé",
+            "none-attempted": "Aucun fichier n'a été téléchargé. Continuer sans don de données ?",
+            "not-all-attempted": "Certains téléchargements ont été ignorés : {skipped-uploads}. Continuer avec les fichiers traités jusqu'à présent ?",
+            "not-all-consented": "Pour certaines données, il n'a pas été indiqué si elles peuvent être transmises : {blueprints-wo-consent}. \n \n Veuillez vérifier.",
+            "failed-uploaders": "Les téléchargements suivants semblent avoir échoué : {uploads}. Continuer quand même ?",
+            "continue-anyway": "Continuer quand même",
+            "back": "Retour"
+        },
+        "submitting-modal": {
+            "submit-wait": "Traitement du don de données en cours..."
+        },
+        "general": {
+            "step": "Étape"
+        }
+    }
+}</pre>
+      
+    </div>
+  </div>
+
+</div>
+
+      
+    </div>
+
+  </div>
+
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../data-donation/index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../data-donation/index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Translations"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script src="../../../static/ddm_projects/js/project-edit-utils.js"></script>
+
+
+<script src="../../../demo-admin.js"></script>
+</body>
+
+</html>

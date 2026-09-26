@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Edit Redirect Configuration</title>
+
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <span>Redirect Configuration</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Redirect Configuration</h1>
+      <div class="h1-sub">
+  Configure whether your participants are redirected to another web-address after
+  reaching the end of your study (i.e., after reaching the debriefing page)
+</div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  <div id="project-redirect-settings" class="ddm-section-container">
+    <div class="row">
+      
+      
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_redirect_enabled"
+        name="redirect_enabled"
+        
+    />
+    <label class="form-check-label" for="id_redirect_enabled">
+      Redirect enabled
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_redirect_target">Redirect address</label>
+    
+    
+    
+      <span class="helptext">The redirect address must start with <code>https://</code>; It is possible to pass information to the redirect address by passing variables to URL parameters: <code>https://redirect.me/?participantId=<b>{{ participant.public_id }}</b></code></span>
+    
+    <input type="text" name="redirect_target" maxlength="2000" aria-describedby="id_redirect_target_helptext" id="id_redirect_target">
+    
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Project"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+
+<script src="../../../../demo-admin.js"></script>
+</body>
+
+</html>

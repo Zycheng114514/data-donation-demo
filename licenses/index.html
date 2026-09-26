@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>Licenses and sources</title>
+<link rel="stylesheet" href="../demo.css"></head>
+<body class="demo-page"><main class="demo-main">
+<h1>Licenses and sources</h1>
+<h2>Port (files under <code>port/task/</code>)</h2>
+<p>Built from <a href="https://github.com/d3i-infra/data-donation-task">d3i-infra/data-donation-task</a> at commit
+<code>f75c41a</code>. License: <a href="port-LICENSE.txt">GNU AGPL-3.0</a>. One local change, so that
+exports whose conversations file is named <code>conversations.json</code> are read:
+<a href="port-chatgpt.patch">port-chatgpt.patch</a>.</p>
+<h2>DDM (files under <code>ddm/static/</code>)</h2>
+<p>From <a href="https://github.com/uzh/ddm">uzh/ddm</a>, package <code>django-ddm</code> 3.0.0b4 on PyPI. License:
+<a href="ddm-LICENSE.txt">GNU GPL-3.0</a>. The uploader bundle is patched so that <code>discardRow()</code> returns
+<code>null</code>; without it, messages can be listed under the wrong conversation in the review step. The patch
+script: <a href="ddm-fix_discard_row.py">ddm-fix_discard_row.py</a>.</p>
+<h2>Demo files</h2>
+<p><code>demo.css</code>, <code>demo-result.js</code>, <code>port/host.js</code> and <code>ddm/demo.js</code> replace the
+servers for this static demo. The DDM pages under <code>ddm/*.html</code> are DDM's own output for the placeholder
+project, saved from a running instance.</p>
+<p><a href="../">Back to the demos</a></p>
+</main></body></html>

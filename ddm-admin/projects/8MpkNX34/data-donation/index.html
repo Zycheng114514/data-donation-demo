@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Data Donation Overview</title>
+
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <span>Data Donation</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Data Donation Overview</h1>
+      <div class="h1-sub">
+  <p>
+    Data donations from participants are collected through <code class="bg-white">Uploaders</code>.
+    Each Uploader is associated with a set of <code class="bg-white">Donation Instructions</code>
+    and one or multiple <code class="bg-white">Blueprints</code>.
+  </p>
+
+  <div class="ddm-info-collapsible white">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-ulbps">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-ulbps"
+            aria-expanded="false"
+            aria-controls="info-collapsible-ulbps"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;Learn more about Uploaders and Blueprints
+    </button>
+  </div>
+
+  <div id="info-collapsible-ulbps"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-ulbps"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p>
+  An <code>Uploader</code> can either be configured to accept a single file (e.g., one JSON file) or a ZIP container as upload. <br />
+  Each Uploader can be assigned <i>one or multiple File Blueprints</i>.<br />
+  Usually, an Uploader relates to one data export (e.g., to a Google Data Takeout or a TikTok Data Takeout).
+</p>
+
+<p>
+  A <code>File Blueprint</code> defines how the data contained in a single file (e.g., in a .json or a .csv file) will be validated and extracted. <br />
+  If a File Blueprint is assigned to a ZIP Uploader, the path (or name) of the file must be provided to identify the correct file in the ZIP container.
+  The validation and extraction logic will then be applied to the first file in a ZIP container that matches this path.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+</div>
+    </div>
+  
+
+  <div>
+    
+  <div class="ddm-section-container">
+    <div class="row">
+      <div class="section-heading">
+        <h2>Uploader Configuration</h2>
+        <p>Manage uploaders and their associated blueprints</p>
+      </div>
+
+      <div>
+        <div class="table-responsive">
+  <table class="table uploader-overview-table">
+    <thead>
+    <tr>
+      <th class="fit-content">Position</th>
+      <th>Uploader</th>
+      <th class="fit-content">Upload Type</th>
+      <th class="fit-content">Donation Instructions</th>
+      <th>Associated Blueprints</th>
+    </tr>
+    </thead>
+
+    <tbody class="border-top-0">
+    
+      <tr>
+        <td class="fw-500">1</td>
+        <td><a class="fw-500" href="file-uploader/1/edit/index.html">ChatGPT export (zip)</a></td>
+        <td><span class="badge-grey">zip file</span></td>
+        <td><a href="file-uploader/1/instructions/index.html">Instructions</a></td>
+
+        
+          <td>
+
+            
+
+              
+                <div>
+                  <a href="blueprint/1/edit/index.html">
+                    <div class="blueprint-card">
+                      ChatGPT conversations
+                    </div>
+                  </a>
+                </div>
+              
+
+              
+
+            
+
+          </td>
+
+        
+
+      </tr>
+
+    
+    </tbody>
+
+  </table>
+</div>
+
+        <a class="ddm-btn-base ddm-btn-green" href="file-uploader/create/index.html">Create Uploader</a>
+        <a class="ddm-btn-base ddm-btn-green" href="blueprint/create/index.html">Create Blueprint</a>
+        <a class="ddm-btn-base ddm-btn-secondary" href="#" data-demo-off="1">Import Uploader</a>
+        <a class="ddm-btn-base ddm-btn-secondary" href="#" data-demo-off="1">Import Blueprint</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ddm-section-container ddm-section-collapsible">
+
+    
+      
+        <div class="ddm-accordion-item ">
+
+  <div class="ddm-accordion-header" id="headingunassociatedBlueprintsAcc">
+    <button class="ddm-accordion-btn collapsed"
+            type="button"
+            id="accordionButtonunassociatedBlueprintsAcc"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseunassociatedBlueprintsAcc"
+            aria-expanded="false"
+            aria-controls="collapseunassociatedBlueprintsAcc"
+            
+    >
+    <span>
+      <span class="ddm-accordion-title ">Unassociated Blueprints</span>
+      <br /><span class="ddm-accordion-description"><span class="badge-grey">0</span></span>
+    </span>
+
+    </button>
+  </div>
+
+  <div id="collapseunassociatedBlueprintsAcc"
+       class="accordion-collapse ddm-accordion-collapse collapse "
+       aria-labelledby="headingunassociatedBlueprintsAcc"
+  >
+    <div>
+      <div class="table-responsive">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+
+    
+      <tr>
+        <td colspan="2">No unassociated Blueprints.</td>
+      </tr>
+    
+
+  </table>
+</div>
+    </div>
+  </div>
+
+</div>
+
+      
+    
+
+  </div>
+
+  <div class="ddm-section-container ddm-section-collapsible">
+    
+      <div class="ddm-accordion-item ">
+
+  <div class="ddm-accordion-header" id="headingadvancedOptionsAcc">
+    <button class="ddm-accordion-btn collapsed"
+            type="button"
+            id="accordionButtonadvancedOptionsAcc"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseadvancedOptionsAcc"
+            aria-expanded="false"
+            aria-controls="collapseadvancedOptionsAcc"
+            
+    >
+    <span>
+      <span class="ddm-accordion-title w-100">Advanced Options</span>
+      
+    </span>
+
+    </button>
+  </div>
+
+  <div id="collapseadvancedOptionsAcc"
+       class="accordion-collapse ddm-accordion-collapse collapse "
+       aria-labelledby="headingadvancedOptionsAcc"
+  >
+    <div>
+      <div class="row justify-content-start gy-4">
+
+    <div id="advanced-options-section" class="col-12">
+      <div class="card-base">
+        <div>
+          <h4>Custom Translations</h4>
+        </div>
+        <div>
+          <p class="m-0 pb-2">Override default phrases and translations used in the data donation interface.</p>
+        </div>
+        <div>
+          <p class="m-0">
+            <a class="internal-link" href="../edit-translations/index.html">
+              Edit Uploader Translations
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+    
+  </div>
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+
+<script src="../../../demo-admin.js"></script>
+</body>
+
+</html>

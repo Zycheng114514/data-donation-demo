@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>[things to be filled: study title] - Port / D3I prototype</title>
+  <link rel="stylesheet" href="host.css">
+  <link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+  <div class="demo-banner">Static demo of the Port participant pages. Nothing you select or type here is sent anywhere; it stays in this browser tab. <a href="../">All demos</a></div>
+
+  <main>
+    <!-- Step 1: study page. In a real Port deployment this page is provided by Eyra's Next platform. -->
+    <section id="step-intro">
+      <h1>[things to be filled: study title]</h1>
+      <p>[things to be filled: study description / briefing - who runs the study, what it is about, what participants will be asked to do, how long it takes]</p>
+
+      <h2>How this works</h2>
+      <ol>
+        <li>You request a copy of your ChatGPT data from OpenAI and download the <code>.zip</code> file (instructions below).</li>
+        <li>You select that file on the next page. <strong>The file is opened inside your browser. It is not uploaded.</strong></li>
+        <li>You see a table of what was extracted. You can search it and delete any rows you do not want to share.</li>
+        <li>Only if you click "Yes, share for research" are the remaining rows sent to the research team.</li>
+      </ol>
+
+      <details>
+        <summary>How to get your ChatGPT export (draft - check against the current ChatGPT interface before fielding)</summary>
+        <ol>
+          <li>Sign in at chatgpt.com in a web browser.</li>
+          <li>Open your profile menu, then <em>Settings</em> &rarr; <em>Data controls</em> &rarr; <em>Export data</em> &rarr; <em>Confirm export</em>.</li>
+          <li>OpenAI sends an email with a download link. The link expires, so download the file soon after the email arrives.</li>
+          <li>Save the <code>.zip</code> file. Do not unzip it.</li>
+        </ol>
+      </details>
+
+      <p class="sample">No export at hand? Use the synthetic test file (no real data):
+        <a href="../sample/synthetic_chatgpt_export_sharded.zip" download>synthetic_chatgpt_export_sharded.zip</a> or
+        <a href="../sample/synthetic_chatgpt_export_legacy.zip" download>synthetic_chatgpt_export_legacy.zip</a>.
+      </p>
+
+      <h2>Consent</h2>
+      <p>[things to be filled: informed consent text approved by the IRB - purpose, what is collected, risks, storage and retention, withdrawal, voluntary participation]</p>
+      <label class="consent"><input type="checkbox" id="consent-box"> [things to be filled: consent statement, e.g. "I have read the information above and agree to take part"]</label>
+
+      <h2>Contact</h2>
+      <p>[things to be filled: principal investigator name, affiliation, e-mail; IRB contact and protocol number]</p>
+
+      <p><button id="start-btn" disabled>Start</button> <span class="pid">Participant ID: <code id="pid-label"></code></span></p>
+    </section>
+
+    <!-- Step 2: the Port task, embedded exactly the way Next embeds it. -->
+    <section id="step-task" hidden>
+      <p id="task-status" class="status">Loading the donation task. The first load downloads the in-browser Python runtime and can take up to a minute.</p>
+      <iframe id="task-frame" title="Data donation task" allow="clipboard-write"></iframe>
+    </section>
+
+    <!-- Step 3: end page. -->
+    <section id="step-done" hidden>
+      <h1>Thank you</h1>
+      <p>[things to be filled: debriefing text; link back to the survey / completion code if the study is linked to Qualtrics or a panel provider]</p>
+      <p id="done-summary" class="status"></p>
+      <div id="demo-result" class="demo-panel" hidden></div>
+    </section>
+  </main>
+
+  <script src="../demo-result.js"></script>
+  <script src="host.js"></script>
+</body>
+</html>

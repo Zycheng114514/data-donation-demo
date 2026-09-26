@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Create Blueprint</title>
+
+  <link rel="stylesheet" href="../../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../index.html">Data Donation</a><i class="bi bi-chevron-right"></i>
+
+  <span>Create Blueprint</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Create Blueprint</h1>
+      <div class="h1-sub"></div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  
+
+  
+
+  
+  <div id="project-details" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>General Settings</h2>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_name">Name</label>
+    
+    
+    
+      <span class="helptext">For internal use (e.g., &quot;watch_history&quot;)</span>
+    
+    <input type="text" name="name" maxlength="250" required aria-describedby="id_name_helptext" id="id_name">
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_file_uploader">Associated File Uploader</label>
+    
+    
+    
+      <span class="helptext">The File Uploader through which the related file will be uploaded</span>
+    
+    <select name="file_uploader" aria-describedby="id_file_uploader_helptext" id="id_file_uploader">
+  <option value="" selected>---------</option>
+
+  <option value="1">ChatGPT export (zip) (zip file)</option>
+
+</select>
+    
+      
+    
+  </div>
+
+
+  </div>
+</div>
+
+  
+  <div id="project-details" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Display Settings</h2>
+      <p>Configure what participants see on the donation interface</p>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_display_name">Display name</label>
+    
+    
+    
+      <span class="helptext">Title of the Blueprint shown to participants (e.g., &quot;Watch History&quot;).</span>
+    
+    <input type="text" name="display_name" maxlength="250" required aria-describedby="id_display_name_helptext" id="id_display_name">
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_description">Description</label>
+    
+    
+    
+      <span class="helptext">Explains to participants what data is extracted (e.g., &quot;Videos you watched and when&quot;)</span>
+    
+    <textarea name="description" cols="40" rows="3" aria-describedby="id_description_helptext" id="id_description">
+</textarea>
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_display_position">Display order</label>
+    
+    
+    
+      <span class="helptext">Controls display order in Blueprint list. Lower = first.</span>
+    
+    <input type="number" name="display_position" value="2" min="0" required aria-describedby="id_display_position_helptext" id="id_display_position">
+    
+      
+    
+  </div>
+
+
+  </div>
+</div>
+
+  <h5 class="mt-5 fw-bold mb-3 fc-grey">Data Extraction Configuration</h5>
+  <div class="row">
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-1-circle-fill"></i></div>
+      <div class="data-flow-border-bottom"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="file-identification-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>File Identification</h2>
+    </div>
+
+    <div id="file-identification-info-zip">
+
+      <p class="mb-3">
+        Files are identified by their path in the zip file.
+        For example, if the file is <code>some_data.json</code> at the root of the zip, enter <code>some_data.json</code> as the file path.
+      </p>
+
+      <p>
+        You can use regex patterns or define multiple paths, which are tried in priority order
+        (lower numbers first; useful if the filename may not always be the same).
+      </p>
+
+      <div class="mt-3" id="file-path-formset-section">
+        <input type="hidden" name="blueprintfilepath_set-TOTAL_FORMS" value="0" id="id_blueprintfilepath_set-TOTAL_FORMS"><input type="hidden" name="blueprintfilepath_set-INITIAL_FORMS" value="0" id="id_blueprintfilepath_set-INITIAL_FORMS"><input type="hidden" name="blueprintfilepath_set-MIN_NUM_FORMS" value="0" id="id_blueprintfilepath_set-MIN_NUM_FORMS"><input type="hidden" name="blueprintfilepath_set-MAX_NUM_FORMS" value="1000" id="id_blueprintfilepath_set-MAX_NUM_FORMS">
+
+
+
+<div>
+  <div id="file-path-formset-container" class="table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Filepath</th>
+        <th>Is regex</th>
+        <th>Priority</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+
+      <tbody id="file-path-table-body">
+      
+        <tr id="no-file-path-table-row">
+          <td colspan="4" class="text-muted">No file paths added</td>
+        </tr>
+      
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+
+<div class="d-none">
+  <table>
+    <tbody id="empty-file-path-form">
+    <tr>
+  <td>
+    <textarea name="blueprintfilepath_set-__prefix__-path" cols="60" rows="1" id="id_blueprintfilepath_set-__prefix__-path">
+</textarea>
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-__prefix__-is_regex" id="id_blueprintfilepath_set-__prefix__-is_regex">
+  </td>
+  <td>
+    <input type="number" name="blueprintfilepath_set-__prefix__-priority" value="1" id="id_blueprintfilepath_set-__prefix__-priority">
+  </td>
+  <td>
+    <input type="checkbox" name="blueprintfilepath_set-__prefix__-DELETE" id="id_blueprintfilepath_set-__prefix__-DELETE">
+    
+      <input type="hidden" name="blueprintfilepath_set-__prefix__-id" id="id_blueprintfilepath_set-__prefix__-id">
+    
+      <input type="hidden" name="blueprintfilepath_set-__prefix__-blueprint" id="id_blueprintfilepath_set-__prefix__-blueprint">
+    
+  </td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+<button type="button" class="ddm-btn ddm-btn-inverted" id="add-file-path-form">Add File Path</button>
+
+      </div>
+
+      <div class="mt-5">
+        <div class="ddm-info-collapsible mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-file-path-advanced">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-file-path-advanced"
+            aria-expanded="false"
+            aria-controls="info-collapsible-file-path-advanced"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;More on how file paths are evaluated
+    </button>
+  </div>
+
+  <div id="info-collapsible-file-path-advanced"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-file-path-advanced"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p class="mt-0">
+  The uploader extracts all file paths from the uploaded zip and tries to match them against your specified path(s).
+</p>
+<p>
+  Matching works from the right: <code>data.json</code> will match both
+  <code>root/data.json</code> and <code>root/some-folder/data.json</code>, selecting the first match.
+  Be specific enough to avoid unintended matches.
+</p>
+<p>
+  If a match is found, the uploader validates the file content and extracts the data.
+</p>
+<p>
+  If no match is found, it tries the next path you defined, or displays an information message to the participant
+  that the file could not be found in the uploaded zip-file.
+</p>
+
+<p class="fw-bold mb-1">Regex matching</p>
+
+<p class="mt-0">
+  Mark a file path as <code>is regex</code> to use regex patterns. For example,
+  <code>/specific folder/.*\.json$</code> matches both <code>/specific folder/my_data.json</code>
+  and <code>/specific folder/meine_daten.json</code> — useful when filenames vary based on account settings.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+      </div>
+
+    </div>
+
+    <div id="file-identification-info-single-file">
+      <p>For single file uploads, the participant will upload a single file – file identification is therefore not necessary.</p>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-2-circle-fill"></i></div>
+      <div class="data-flow-border-bottom"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="file-validation-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>File Validation</h2>
+      <p>Configure how an identified file is validated</p>
+    </div>
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_exp_file_format">Expected file format</label>
+    
+    
+    
+    <select name="exp_file_format" id="id_exp_file_format">
+  <option value="json" selected>JSON file</option>
+
+  <option value="csv">CSV file</option>
+
+  <option value="txt">TXT file</option>
+
+</select>
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_csv_delimiter">Csv delimiter</label>
+    
+    
+    
+      <span class="helptext">The character that separates values in the CSV (e.g., <code>,</code> <code>;</code> or <code>\t</code> for tab). If left empty, the delimiter is inferred automatically.</span>
+    
+    <input type="text" name="csv_delimiter" maxlength="10" aria-describedby="id_csv_delimiter_helptext" id="id_csv_delimiter">
+    
+      
+    
+  </div>
+
+
+
+    <div id="txt-parser-fields" class="mt-1 row g-4">
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_record_separator">Record/entry separator</label>
+    
+    
+    
+      <span class="helptext">The character(s) that separate one entry from the next in the file &mdash; for example, a blank line or a single line break. Use <code>\n</code> for a line break, or <code>\n\n</code> for a blank line between entries.</span>
+    
+    <input type="text" name="txt_record_separator" value="
+
+" maxlength="20" aria-describedby="id_txt_record_separator_helptext" id="id_txt_record_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_field_separator">Field separator</label>
+    
+    
+    
+      <span class="helptext">The character sequence that separates individual fields within a single record (e.g., a line break if each field is on its own line). Use <code>\n</code> for a line break.</span>
+    
+    <input type="text" name="txt_field_separator" value="
+" maxlength="20" aria-describedby="id_txt_field_separator_helptext" id="id_txt_field_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-12 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_kv_separator">Key-value separator</label>
+    
+    
+    
+      <span class="helptext">The character that separates a field's name from its value within a line (e.g., <code>:</code> in <code>Name: John</code>, or <code>=</code> in <code>name=John</code>).</span>
+    
+    <input type="text" name="txt_kv_separator" value=":" maxlength="10" aria-describedby="id_txt_kv_separator_helptext" id="id_txt_kv_separator">
+    
+      
+    
+  </div>
+
+
+      </div>
+
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_skip_header_lines">Skip header lines</label>
+    
+    
+    
+      <span class="helptext">How many lines to skip at the beginning of the TXT-file.</span>
+    
+    <input type="number" name="txt_skip_header_lines" value="0" min="0" aria-describedby="id_txt_skip_header_lines_helptext" id="id_txt_skip_header_lines">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_skip_footer_lines">Skip footer lines</label>
+    
+    
+    
+      <span class="helptext">How many lines to skip at the end of the TXT-file.</span>
+    
+    <input type="number" name="txt_skip_footer_lines" value="0" min="0" aria-describedby="id_txt_skip_footer_lines_helptext" id="id_txt_skip_footer_lines">
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-6 mt-0">
+      </div>
+
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_ignore_blank_lines">Ignore blank lines</label>
+    
+    
+    
+    <input type="checkbox" name="txt_ignore_blank_lines" id="id_txt_ignore_blank_lines" checked>
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-3 mt-0">
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_txt_trim_whitespace">Trim whitespace</label>
+    
+    
+    
+      <span class="helptext">Whether to trim whitespace around records/entries and key-value pairs.</span>
+    
+    <input type="checkbox" name="txt_trim_whitespace" aria-describedby="id_txt_trim_whitespace_helptext" id="id_txt_trim_whitespace" checked>
+    
+      
+    
+  </div>
+
+
+      </div>
+      <div class="col-md-6 mt-0">
+      </div>
+    </div>
+
+    <div>
+      
+  <div class="form-field-wrapper ">
+    
+      <label for="id_expected_fields">Expected fields</label>
+    
+    
+    
+      <span class="helptext">Comma-separated, in double quotes: <code>"Field A", "Field B"</code></span>
+    
+    <textarea name="expected_fields" cols="40" rows="1" required aria-describedby="id_expected_fields_helptext" id="id_expected_fields">
+</textarea>
+    
+      
+    
+  </div>
+
+
+      
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_expected_fields_regex_matching"
+        name="expected_fields_regex_matching"
+        
+    />
+    <label class="form-check-label" for="id_expected_fields_regex_matching">
+      Expected fields use regex matching
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+    </div>
+
+    
+
+    <div>
+      <div class="ddm-info-collapsible mx-0">
+
+  <div class="ddm-info-collapsible-header" id="info-collapsible-heading-filevalidation">
+    <button class="ddm-info-collapsible-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#info-collapsible-filevalidation"
+            aria-expanded="false"
+            aria-controls="info-collapsible-filevalidation"
+    >
+      <i class="bi bi-info-circle-fill fs-6 ddm-info-collapsible-icon"></i>&nbsp;&nbsp;How the file validation works
+    </button>
+  </div>
+
+  <div id="info-collapsible-filevalidation"
+       class="accordion-collapse collapse"
+       aria-labelledby="info-collapsible-heading-filevalidation"
+  >
+    <div class="ddm-info-collapsible-body">
+      
+        <p class="mt-0">
+  When a file has been identified, it is validated in order:
+</p>
+<ol class="mb-2 mt-2">
+  <li><strong>Format correct</strong>: The file matches the expected file format.</li>
+  <li><strong>Fields present</strong>: The file contains all expected fields.</li>
+</ol>
+<p class="mt-0">
+  If any step fails, no data is extracted and the participant sees an error explaining what went wrong.
+</p>
+
+      
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="col-sm-1 data-flow-container">
+      <div class="data-flow-border-top"></div>
+      <div><i class="bi bi-3-circle-fill"></i></div>
+      <div class="data-flow-border-bottom border-0"></div>
+    </div>
+
+    <div class="col-12 col-sm-11">
+      
+      <div id="data-extraction-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Data Extraction</h2>
+      <p>Configure what data will be collected</p>
+    </div>
+
+    <p class="mt-1">
+      You can configure the data extraction once you have created the Blueprint.
+    </p>
+
+  </div>
+</div>
+    </div>
+
+    
+    <div id="delete-blueprint-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Advanced Settings</h2>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_backup_for">Backup for</label>
+    
+    
+    
+      <span class="helptext">If set, this blueprint is used as a fallback when the referenced blueprint&#x27;s parser fails to extract data (either because it does not find the expected file or because it encounters an error).</span>
+    
+    <select name="backup_for" aria-describedby="id_backup_for_helptext" id="id_backup_for">
+  <option value="" selected>---------</option>
+
+</select>
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_backup_priority">Backup priority</label>
+    
+    
+    
+      <span class="helptext">If a Blueprint has multiple backups, backup blueprints with lower priority values are tried first when the main blueprint&#x27;s parser fails.</span>
+    
+    <input type="number" name="backup_priority" value="0" min="0" required aria-describedby="id_backup_priority_helptext" id="id_backup_priority">
+    
+      
+    
+  </div>
+
+
+
+  </div>
+</div>
+
+
+  </div>
+
+
+
+    </form>
+  
+
+  
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Create Blueprint"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script id="file_uploader_meta" type="application/json">{"1": "zip file"}</script>
+  <script src="../../../../../static/ddm_datadonation/js/blueprint-general-ui-helpers.js"></script>
+  <script src="../../../../../static/ddm_datadonation/js/file-path-form-helper.js"></script>
+  <script src="../../../../../static/ddm_datadonation/js/accordion-form-error-indicator.js"></script>
+
+
+<script src="../../../../../demo-admin.js"></script>
+</body>
+
+</html>

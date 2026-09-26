@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ChatGPT donation - prototype</title>
+
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/fonts.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/research-interface-base.css" />
+  
+
+  
+
+  <link rel="stylesheet" href="../demo.css">
+</head>
+<body id="ddm-participation-body">
+<div class="demo-banner">Static demo of the DDM participant pages. Nothing you select or type here is sent anywhere; it stays in this browser tab. <a href="../">All demos</a></div>
+<div id="ddm-participation-header">
+  
+    <div class="border-bottom">
+  <div class="container py-3">
+    <div class="row align-items-center">
+      <div class="col-6 col-sm-3 col-md-4 order-0 text-start text-sm-center">
+        
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1 text-center project-title pt-4 pt-sm-0">
+        
+      </div>
+
+      <div class="col-6 col-sm-3 col-md-4 order-1 order-sm-2 text-end text-sm-center">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+<div id="ddm-participation-main">
+  <div class="container public-main py-5 px-3">
+    <div class="row justify-content-center">
+      
+<div class="col-12 col-md-10 col-lg-8">
+
+  <div>
+    
+
+    
+    <h2>[things to be filled: study title]</h2><p>[things to be filled: briefing - who runs the study, what it is about, what participants will be asked to do, how long it takes, compensation]</p><p>[things to be filled: informed consent text approved by the IRB]</p>
+    
+  </div>
+
+  <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+
+    
+    <div
+      id="briefing-consent-answer"
+      class="briefing-consent-container"
+    >
+      <div class="form-check">
+        <input
+          type="radio"
+          id="consent_yes"
+          class="form-check-input"
+          name="briefing_consent"
+          value="1"
+          required
+        />
+        <label
+          class="form-check-label"
+          for="consent_yes"
+        >
+          [things to be filled: consent label, e.g. 'I agree to take part']
+        </label>
+      </div>
+
+      <div class="form-check pt-2">
+        <input
+          type="radio"
+          id="consent_no"
+          class="form-check-input"
+          name="briefing_consent"
+          value="0"
+        />
+        <label
+          class="form-check-label"
+          for="consent_no"
+        >
+          [things to be filled: decline label, e.g. 'I do not want to take part']
+        </label>
+      </div>
+    </div>
+    
+
+    <button
+      class="flow-btn"
+      type="submit"
+    >
+      <span class="pe-2">Continue</span>
+      <i class="step-chevron bi bi-chevron-right"></i>
+    </button>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div id="ddm-participation-footer">
+  
+    
+
+<div class="border-top">
+  <div class="container public-footer pt-3 pb-5">
+    <div class="d-flex flex-row">
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#contactModal"
+        >
+          Contact
+        </a>
+      </div>
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#dataProtectionModal"
+        >
+          What happens with my data?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactInformation" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Contact Information
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: principal investigator name, affiliation, address, e-mail, phone]
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dataProtectionModal" tabindex="-1" aria-labelledby="dataProtection" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Data Protection Statement
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: data protection statement - purpose of collection, storage location, retention period, who has access, IRB protocol number]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+<script src="static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="demo.js" data-page="briefing"></script>
+</body>
+</html>

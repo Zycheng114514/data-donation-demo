@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DDM: Edit Uploader</title>
+
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/ddm-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/research-interface-base.css" />
+  <link rel="stylesheet" href="../../../../../../static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+
+  
+</head>
+
+<body class="research-interface"><div style="background:#fff4ce;border-bottom:1px solid #e6d48a;padding:.5rem 1rem;font:14px/1.45 system-ui,-apple-system,sans-serif;text-align:center;color:#1b1f24">Read-only snapshot of DDM's researcher interface for the placeholder ChatGPT project, with two synthetic participants. Every page can be opened; nothing can be saved, and delete, import and export are switched off. <a href="../../../../../../../index.html" style="color:#0b5cad">All demos</a></div>
+
+
+  
+
+<div class="ddm-header">
+  <div class="container fs-6 fw-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="ddm-nav-icon" href="../../../../../index.html">
+        <img
+          alt="Data Donation Module"
+          height="40"
+          src="../../../../../../static/ddm_core/img/logos/DDM_Logo_Schwarz.svg"
+        />
+      </a>
+
+
+
+
+    </nav>
+
+  </div>
+</div>
+
+
+
+<div class="sub-header container">
+  <div class="ddm-breadcrumbs">
+    
+  <a href="../../../../../index.html">Projects</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../../index.html">ChatGPT donati…</a><i class="bi bi-chevron-right"></i>
+
+  <a href="../../../index.html">Data Donation</a><i class="bi bi-chevron-right"></i>
+
+  <span>Edit Uploader</span>
+
+  </div>
+  <div class="version-info">DDM v3.0.0b4</div>
+</div>
+
+<div class="message-wrapper container">
+  <div class="ddm-message-container container">
+    
+  </div>
+</div>
+
+<div id="ddm-main" class="ddm-main container">
+
+  
+    <div class="main-heading">
+      <h1>Edit Uploader "ChatGPT export (zip)"</h1>
+      <div class="h1-sub"></div>
+    </div>
+  
+
+  <div>
+    
+
+  
+
+  
+    <form id="base-form" method='post' enctype="multipart/form-data">
+      <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+      
+
+      
+
+  
+
+  
+  <div id="general-settings" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Base Settings</h2>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_upload_type">Upload type</label>
+    
+    
+    
+    <select name="upload_type" id="id_upload_type">
+  <option value="zip file" selected>Zip File</option>
+
+  <option value="single file">Single File</option>
+
+</select>
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_name">Name</label>
+    
+    
+    
+      <span class="helptext">For internal use (e.g., &quot;tiktok_uploader&quot;)</span>
+    
+    <input type="text" name="name" value="ChatGPT export (zip)" maxlength="250" required aria-describedby="id_name_helptext" id="id_name">
+    
+      
+    
+  </div>
+
+
+
+    <div
+      id="file-uploader-zip-settings"
+      class="container ddm-form-group"
+      
+      style="visibility: hidden; max-height: 0; opacity: 0; margin: 0; padding: 0;"  
+      
+    >
+      <p class="ddm-form-group-header mb-4">Nested zip extraction</p>
+
+      <div class="row mt-2">
+
+        
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_extract_nested_zips"
+        name="extract_nested_zips"
+        
+    />
+    <label class="form-check-label" for="id_extract_nested_zips">
+      Extract nested zip files
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+      <span class="helptext">
+        When enabled, any zip files found inside the uploaded zip are automatically extracted up to the extraction depth so their contents can be processed by Blueprints.
+      </span>
+    
+
+  </div>
+
+
+        
+  <div class="form-field-wrapper ">
+    
+      <label for="id_extraction_depth">Extraction depth</label>
+    
+    
+    
+      <span class="helptext">Levels of nested zips to extract (0 = top-level only)</span>
+    
+    <input type="number" name="extraction_depth" value="0" min="0" required aria-describedby="id_extraction_depth_helptext" id="id_extraction_depth">
+    
+      
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div id="display-settings" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Display Settings</h2>
+      <p>Configure how the Uploader is displayed in the donation interface</p>
+    </div>
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_display_name">Display name</label>
+    
+    
+    
+      <span class="helptext">Title of the Uploader shown to participants (e.g., &quot;TikTok Data Donation&quot;)</span>
+    
+    <input type="text" name="display_name" value="Your ChatGPT data export" maxlength="250" required aria-describedby="id_display_name_helptext" id="id_display_name">
+    
+      
+    
+  </div>
+
+
+    
+  <div class="form-field-wrapper ">
+    
+      <label for="id_index">Display position</label>
+    
+    
+    
+      <span class="helptext">Controls display order when multiple Uploaders exist. Lower = first.</span>
+    
+    <input type="number" name="index" value="1" min="0" required aria-describedby="id_index_helptext" id="id_index">
+    
+      
+    
+  </div>
+
+
+  </div>
+</div>
+
+  
+  <div id="consent-settings" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Consent Settings</h2>
+      <p>Configure how consent is obtained for the donation of data uploaded through this Uploader</p>
+    </div>
+
+    <p class="mb-2">
+      By default, participants consent to each blueprint separately. Enable all-in-one consent to ask once for all data.
+    </p>
+
+    
+  <div class="form-field-wrapper form-check form-switch ">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="id_combined_consent"
+        name="combined_consent"
+        
+    />
+    <label class="form-check-label" for="id_combined_consent">
+      All-in-one consent
+    </label>
+  </div>
+
+  <div class="below-switch">
+    
+
+    
+
+  </div>
+
+
+  </div>
+</div>
+
+  
+  <div id="associated-blueprints" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Associated Blueprints</h2>
+      <p>
+        Select which of the following Blueprints belong to this Uploader. Please note that one Blueprint can only be
+        assigned to one Uploader and Blueprints assigned to other Uploaders are not listed.
+      </p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-borderless table-striped">
+        
+          <tr>
+            <td>
+              <input
+                type="checkbox"
+                id="bp-1"
+                name="bp-1"
+                checked
+              />
+            </td>
+            <td>
+              <label for="bp-1" class="ddm-choice-label">
+                <span class="fs-09">ChatGPT conversations</span>
+              </label>
+            </td>
+          </tr>
+        
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+    </form>
+  
+
+  
+  
+  <div id="copy-uploader-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2>Copy / Export</h2>
+    </div>
+
+    <div class="col-auto">
+      <form
+        method="post"
+       
+        onsubmit="this.querySelector('button').disabled = true;"
+      >
+        <input type="hidden" name="csrfmiddlewaretoken" value="static-demo">
+        <button
+          class="ddm-btn-base ddm-btn-secondary"
+          type="submit"
+        >
+          Create a copy of this Uploader
+        </button>
+      </form>
+    </div>
+
+    <div class="col-auto">
+      <a
+        class="ddm-btn-base ddm-btn-secondary"
+        href="#" data-demo-off="1">
+        Export Uploader
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+  
+  <div id="delete-uploader-section" class="ddm-section-container">
+  <div class="row">
+    <div class="form-section-heading">
+      <h2 class="fc-red">Delete Uploader</h2>
+    </div>
+
+    <div class="col-auto">
+      <a class="ddm-btn-base ddm-btn-red-inverted" href="#" data-demo-off="1">Delete Uploader</a>
+    </div>
+
+  </div>
+</div>
+
+
+  
+
+
+  </div>
+</div>
+
+
+  <div class="form-controls">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-6">
+          
+            <div><a href="../../../index.html"><i class="bi bi-arrow-left-short"></i> Back</a></div>
+          
+        </div>
+
+        <div class="col-6 text-end">
+          
+            
+              <div><div class="ddm-btn-group">
+  <div></div>
+  <div class="inner-btn-group">
+    <div><a class="ddm-btn-base ddm-btn-secondary" href="../../../index.html">Cancel</a></div>
+    <div>
+      <input
+        form="base-form"
+        class="ddm-btn-base ddm-btn-green"
+        type="submit"
+        value="Update Uploader"
+      />
+    </div>
+  </div>
+</div>
+</div>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <script src="../../../../../../static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../../../../../../static/ddm_core/js/coloris/coloris.js"></script>
+  <script src="../../../../../../static/ddm_core/js/messages.js"></script>
+  <script src="../../../../../../static/ddm_projects/js/project-admin-base.js"></script>
+
+  <script src="../../../../../../static/ddm_datadonation/js/file-uploader-ui-helpers.js"></script>
+
+
+<script src="../../../../../../demo-admin.js"></script>
+</body>
+
+</html>

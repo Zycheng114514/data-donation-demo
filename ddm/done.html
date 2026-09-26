@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ChatGPT donation - prototype</title>
+
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/bootstrap/bootstrap-icons.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/fonts.css" />
+  <link rel="stylesheet" href="static/ddm_core/css/research-interface-base.css" />
+  
+
+  
+
+  <link rel="stylesheet" href="../demo.css">
+</head>
+<body id="ddm-participation-body">
+<div class="demo-banner">Static demo of the DDM participant pages. Nothing you select or type here is sent anywhere; it stays in this browser tab. <a href="../">All demos</a></div>
+<div id="ddm-participation-header">
+  
+    <div class="border-bottom">
+  <div class="container py-3">
+    <div class="row align-items-center">
+      <div class="col-6 col-sm-3 col-md-4 order-0 text-start text-sm-center">
+        
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 order-2 order-sm-1 text-center project-title pt-4 pt-sm-0">
+        
+      </div>
+
+      <div class="col-6 col-sm-3 col-md-4 order-1 order-sm-2 text-end text-sm-center">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+<div id="ddm-participation-main">
+  <div class="container public-main py-5 px-3">
+    <div class="row justify-content-center">
+      
+<div class="col-12 col-md-10 col-lg-8">
+
+  <div>
+    
+    <p>[things to be filled: debriefing text; completion code or link back to the panel provider]</p><p><span data-demo="donation-note">Prototype note: your donation was received.</span> DDM participant ID: <span data-demo="participant-id"></span>; ID passed in the link (?pid=): <span data-demo="pid"></span></p>
+    
+  </div>
+
+  
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+<div id="ddm-participation-footer">
+  
+    
+
+<div class="border-top">
+  <div class="container public-footer pt-3 pb-5">
+    <div class="d-flex flex-row">
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#contactModal"
+        >
+          Contact
+        </a>
+      </div>
+      <div class="pe-4">
+        <a
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#dataProtectionModal"
+        >
+          What happens with my data?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactInformation" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Contact Information
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: principal investigator name, affiliation, address, e-mail, phone]
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dataProtectionModal" tabindex="-1" aria-labelledby="dataProtection" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header fw-bold pb-2 pt-2">
+        Data Protection Statement
+        <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-2 pt-2">
+        [things to be filled: data protection statement - purpose of collection, storage location, retention period, who has access, IRB protocol number]
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="static/ddm_core/js/jquery/jquery-3.6.2.min.js"></script>
+<script src="static/ddm_core/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="../demo-result.js"></script>
+<script src="demo.js" data-page="done"></script>
+</body>
+</html>
