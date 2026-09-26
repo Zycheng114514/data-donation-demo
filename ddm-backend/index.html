@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DDM back end</title>
+  <link rel="stylesheet" href="../demo.css">
+  <style>
+    code.enc { word-break: break-all; font-size: .8rem; }
+    .demo-main td code { font-size: .82rem; }
+  </style>
+</head>
+<body class="demo-page">
+  <div class="demo-banner">Synthetic data, saved from a local test copy of DDM 3.0.0b4. Nothing on this page connects to
+    a server. <a href="../">All demos</a></div>
+  <main class="demo-main">
+    <h1>DDM back end: what is stored and how researchers get it</h1>
+    <p>Two synthetic participants went through the <a href="../ddm/">DDM participant flow</a> of this project:
+      P001 donated all 15 messages of the newer export; P002 removed one conversation from the older export and donated
+      11 messages. Both answered the questionnaire. This page shows what DDM kept and the three ways a researcher gets
+      it. 1 further internal test participant, used to build the demo pages, is left out of every
+      table and file below.</p>
+
+    <h2>1. What the database holds</h2>
+    <p>Participants are stored in plain form: the ID DDM assigns, the ID passed in the link (<code>?pid=</code>), the
+      consent answer and the times.</p>
+    <div class="demo-table-scroll"><table><tr><th>DDM participant ID</th><th>pid from the link</th><th>consent</th><th>started</th><th>finished</th><th>completed</th></tr><tr><td><code>YOMtSfJlrAbtqzEdBMK4fFPa</code></td><td>P001</td><td>1</td><td>2026-09-26 22:13:10</td><td>2026-09-26 22:13:42</td><td>True</td></tr><tr><td><code>x0TFPEGacbYGJH2AJ63gJ7N7</code></td><td>P002</td><td>1</td><td>2026-09-26 22:13:54</td><td>2026-09-26 22:14:18</td><td>True</td></tr></table></div>
+    <p>Donations and questionnaire answers are stored encrypted. This is the <code>data</code> column as it sits in the
+      database:</p>
+    <div class="demo-table-scroll"><table><tr><th>participant</th><th>submitted</th><th>consent</th><th>extraction</th><th>rows</th><th>data (as stored)</th></tr><tr><td><code>YOMtSfJl…</code> (P001)</td><td>2026-09-26 22:13:32</td><td>True</td><td>DATA_EXTRACTED</td><td>15</td><td><code class="enc">iNnWEDty+dztHQ7O0Cuwn9Po7n1VeKXIEOlTi0ytn6Rq2N/mEfVvfVImaCwaAiFITFZ2cZCR0dcm/u5k9wKovTpmVLxzUqGJFR2hD97kSmG7d3ErDG4a546G…</code><br><span class="demo-muted">7,080 characters in total</span></td></tr><tr><td><code>x0TFPEGa…</code> (P002)</td><td>2026-09-26 22:14:08</td><td>True</td><td>DATA_EXTRACTED</td><td>11</td><td><code class="enc">EQ5fclE6A2ddZWZXFEEAkrWm9RKMZG/cdqTfCVk5Og2ovnERfhLAIB+mIhK5BxMmlwuA+VHKFnxkepmOnptlWYGp8H2Cz4Jd8kULzW/qvDH9DNgo/T6+XeFi…</code><br><span class="demo-muted">5,412 characters in total</span></td></tr></table></div>
+    <div class="demo-table-scroll"><table><tr><th>participant</th><th>submitted</th><th>questionnaire answers (as stored)</th></tr><tr><td><code>YOMtSfJl…</code> (P001)</td><td>2026-09-26 22:13:42</td><td><code class="enc">f9vMZu8G8oCwWLvcayeZ0zs363+yJv0UVjHTgk2fqpHrMNZ9ShZ2mZDhudkHM04Fs0SGkL73w9Kt4/BEoF1R0ZLNUQECLn0Oxh6y3qQIQV53/ny+j6ZM9O9i…</code><br><span class="demo-muted">440 characters in total</span></td></tr><tr><td><code>x0TFPEGa…</code> (P002)</td><td>2026-09-26 22:14:18</td><td><code class="enc">BXzTvhrBLtZdhcxhPJp9qqRXydgSNwYsXjoWdRGiqsVVdW2Apvu7GI6KaLdbUfOvxcfb7sSl3/BBRvaMz2tNcnBPXnDis96uGHYveXKvih/Nkt9Rl0ACWnpT…</code><br><span class="demo-muted">440 characters in total</span></td></tr></table></div>
+    <p class="demo-muted">How DDM encrypts (from its source, <code>ddm/encryption/models.py</code>): each record gets a new
+      random 16-byte AES key; the record is encrypted with it, and the AES key is encrypted with the project's RSA-2048
+      public key. The stored text is the base64 of both. The matching private key is computed from the server's secret
+      key and a per-project salt, so the database file alone cannot be read, while the running server, or anyone
+      holding the secret key, can decrypt. A project can instead use its own password that the server never stores;
+      then the API below cannot be used and question texts cannot quote the donation.</p>
+
+    <h2>2. Downloads in the researcher interface</h2>
+    <p>In the <a href="../ddm-admin/projects/8MpkNX34/index.html">Data Center</a> of the project, a researcher
+      downloads two CSV files (<a href="../ddm-admin/downloads/participation-overview.csv">participation overview</a>,
+      <a href="../ddm-admin/downloads/responses.csv">questionnaire answers</a>). The donated data are downloaded per
+      participant, decrypted by the server, as a ZIP with one JSON file:</p>
+    <ul><li><a href="files/ddm_8MpkNX34_donations_YOMtSfJlrAbtqzEdBMK4fFPa.zip" download>ddm_8MpkNX34_donations_YOMtSfJlrAbtqzEdBMK4fFPa.zip</a> - participant P001, 1,886 bytes</li><li><a href="files/ddm_8MpkNX34_donations_x0TFPEGacbYGJH2AJ63gJ7N7.zip" download>ddm_8MpkNX34_donations_x0TFPEGacbYGJH2AJ63gJ7N7.zip</a> - participant P002, 1,552 bytes</li></ul>
+    <p>Inside <code>ddm_8MpkNX34_donations_YOMtSfJlrAbtqzEdBMK4fFPa.json</code> (first two of 15 rows):</p>
+    <pre class="demo-pre">[
+  {
+    &quot;blueprint_id&quot;: 1,
+    &quot;blueprint_name&quot;: &quot;ChatGPT conversations&quot;,
+    &quot;donation&quot;: {
+      &quot;participant&quot;: &quot;YOMtSfJlrAbtqzEdBMK4fFPa&quot;,
+      &quot;data&quot;: [
+        {
+          &quot;conversation_title&quot;: &quot;SYNTHETIC - Weekend trip ideas&quot;,
+          &quot;conversation_id&quot;: &quot;7eeec213-8031-59de-9b6c-0a5ca2208edb&quot;,
+          &quot;message_id&quot;: &quot;5d7bac9d-f5af-56c4-9c6e-74e312c00166&quot;,
+          &quot;role&quot;: &quot;user&quot;,
+          &quot;text&quot;: &quot;SYNTHETIC TEST DATA. Suggest a two-day trip within three hours of Washington DC.&quot;,
+          &quot;create_time&quot;: 1755000045
+        },
+        {
+          &quot;conversation_title&quot;: &quot;SYNTHETIC - Weekend trip ideas&quot;,
+          &quot;conversation_id&quot;: &quot;7eeec213-8031-59de-9b6c-0a5ca2208edb&quot;,
+          &quot;message_id&quot;: &quot;91d5c8a6-64de-5408-b789-bc5983c533aa&quot;,
+          &quot;role&quot;: &quot;assistant&quot;,
+          &quot;text&quot;: &quot;SYNTHETIC TEST DATA. Shenandoah National Park: drive Skyline Drive on day one, hike Old Rag on day two.&quot;,
+          &quot;model&quot;: &quot;gpt-4o&quot;,
+          &quot;create_time&quot;: 1755000052
+        }
+      ],
+      &quot;time_submitted&quot;: &quot;2026-09-26T18:13:32.417448-04:00&quot;,
+      &quot;data_extraction_state&quot;: &quot;DATA_EXTRACTED&quot;,
+      &quot;consent&quot;: true,
+      &quot;n_data_entries&quot;: 15
+    }
+  }
+]</pre>
+
+    <h2>3. Remote access through the API</h2>
+    <p>Under "Remote Data Access" a researcher creates a token for the project (valid for at most 90 days). A program
+      sends it with every request: <code>Authorization: Token &lt;your token&gt;</code>. The three read endpoints:</p>
+    <div class="demo-table-scroll"><table><tr><th>request</th><th>returns</th><th>saved response</th></tr><tr><td><code>GET /api/project/8MpkNX34/overview</code></td><td>participants, the extraction configuration, project settings</td><td><a href="files/api-overview.json">api-overview.json</a></td></tr><tr><td><code>GET /api/project/8MpkNX34/donations?participants=ID1,ID2</code></td><td>the decrypted donations of the listed participants (the list is required)</td><td><a href="files/api-donations.json">api-donations.json</a></td></tr><tr><td><code>GET /api/project/8MpkNX34/responses</code></td><td>questionnaire answers</td><td><a href="files/api-responses.json">api-responses.json</a></td></tr></table></div>
+    <p>Example request and the start of its response:</p>
+    <pre class="demo-pre">curl -H "Authorization: Token &lt;your token&gt;" \
+  "https://ddm.example.org/api/project/8MpkNX34/donations?participants=YOMtSfJlrAbtqzEdBMK4fFPa"</pre>
+    <pre class="demo-pre">{
+  &quot;blueprints&quot;: {
+    &quot;1&quot;: {
+      &quot;blueprint_name&quot;: &quot;ChatGPT conversations&quot;,
+      &quot;donations&quot;: [
+        {
+          &quot;participant&quot;: &quot;YOMtSfJlrAbtqzEdBMK4fFPa&quot;,
+          &quot;data&quot;: [
+            {
+              &quot;conversation_title&quot;: &quot;SYNTHETIC - Weekend trip ideas&quot;,
+              &quot;conversation_id&quot;: &quot;7eeec213-8031-59de-9b6c-0a5ca2208edb&quot;,
+              &quot;message_id&quot;: &quot;5d7bac9d-f5af-56c4-9c6e-74e312c00166&quot;,
+              &quot;role&quot;: &quot;user&quot;,
+              &quot;text&quot;: &quot;SYNTHETIC TEST DATA. Suggest a two-day trip within three hours of Washington DC.&quot;,
+              &quot;create_time&quot;: 1755000045
+            },
+            {
+              &quot;conversation_title&quot;: &quot;SYNTHETIC - Weekend trip ideas&quot;,
+              &quot;conversation_id&quot;: &quot;7eeec213-8031-59de-9b6c-0a5ca2208edb&quot;,
+              &quot;message_id&quot;: &quot;91d5c8a6-64de-5408-b789-bc5983c533aa&quot;,
+              &quot;role&quot;: &quot;assistant&quot;,
+              &quot;text&quot;: &quot;SYNTHETIC TEST DATA. Shenandoah National Park: drive Skyline Drive on day one, hike Old Rag on day two.&quot;,
+              &quot;model&quot;: &quot;gpt-4o&quot;,
+              &quot;create_time&quot;: 1755000052
+            }
+          ],
+          &quot;time_submitted&quot;: &quot;2026-09-26T18:13:32.417448-04:00&quot;,
+          &quot;data_extraction_state&quot;: &quot;DATA_EXTRACTED&quot;,
+          &quot;consent&quot;: true,
+          &quot;n_data_entries&quot;: 15
+        }
+      ]
+    }
+  },
+  &quot;metadata&quot;: {
+    &quot;n_blueprints&quot;: 1
+  }
+}</pre>
+    <p class="demo-muted">The API also has endpoints that delete one participant or all data of a project; they are not
+      called here. A program that processes donations elsewhere would use the donations endpoint to fetch new ones.</p>
+
+    <h2>4. Not part of DDM</h2>
+    <p>Backups of the database and of the secret key, and anything that happens to the data after download
+      (de-identification, feature extraction, access tiers, deletion schedules) are outside DDM.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,176 @@
+{
+  "participants": [
+    {
+      "external_id": "YOMtSfJlrAbtqzEdBMK4fFPa",
+      "start_time": "2026-09-26T18:13:10.406466-04:00",
+      "end_time": "2026-09-26T18:13:42.911695-04:00",
+      "completed": true,
+      "url_parameter": {
+        "pid": "P001"
+      },
+      "extra_data": {
+        "briefing_consent": "1"
+      },
+      "current_step": 3
+    },
+    {
+      "external_id": "x0TFPEGacbYGJH2AJ63gJ7N7",
+      "start_time": "2026-09-26T18:13:54.388381-04:00",
+      "end_time": "2026-09-26T18:14:18.648615-04:00",
+      "completed": true,
+      "url_parameter": {
+        "pid": "P002"
+      },
+      "extra_data": {
+        "briefing_consent": "1"
+      },
+      "current_step": 3
+    }
+  ],
+  "blueprints": [
+    {
+      "id": 1,
+      "name": "Your conversations with ChatGPT",
+      "description": "For every message: conversation title and ID, who wrote it (you or ChatGPT), the text, the model, and the time. [things to be filled: adjust once the study decides which fields it needs]",
+      "format": "json",
+      "expected_fields": [
+        "title",
+        "mapping"
+      ],
+      "exp_fields_regex_matching": false,
+      "nested_expected_fields": [
+        "message"
+      ],
+      "nested_exp_fields_regex_matching": false,
+      "parser_config": {
+        "format": "json",
+        "extraction_root": "",
+        "nested_loop_path": "mapping",
+        "array_join_separator": "\n"
+      },
+      "nested_display_by_root_item": true,
+      "nested_entry_exclusion_allowed": true,
+      "fields_to_extract": [
+        "role",
+        "conversation_title",
+        "conversation_id",
+        "message_id",
+        "model",
+        "text",
+        "create_time"
+      ],
+      "extraction_fields": [
+        {
+          "id": 1,
+          "scope": "root",
+          "expected_name": "title",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "conversation_title"
+        },
+        {
+          "id": 2,
+          "scope": "root",
+          "expected_name": "conversation_id",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "conversation_id"
+        },
+        {
+          "id": 3,
+          "scope": "nested",
+          "expected_name": "message.id",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "message_id"
+        },
+        {
+          "id": 4,
+          "scope": "nested",
+          "expected_name": "message.author.role",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "role"
+        },
+        {
+          "id": 5,
+          "scope": "nested",
+          "expected_name": "message.content.parts",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "text"
+        },
+        {
+          "id": 6,
+          "scope": "nested",
+          "expected_name": "message.metadata.model_slug",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "model"
+        },
+        {
+          "id": 7,
+          "scope": "nested",
+          "expected_name": "message.create_time",
+          "match_regex": false,
+          "keep_in_donation": true,
+          "alias": "create_time"
+        },
+        {
+          "id": 8,
+          "scope": "nested",
+          "expected_name": "message.metadata.is_visually_hidden_from_conversation",
+          "match_regex": false,
+          "keep_in_donation": false,
+          "alias": "hidden"
+        }
+      ],
+      "file_paths": [
+        {
+          "path": "(^|/)conversations(-\\d+)?\\.json$",
+          "is_regex": true
+        }
+      ],
+      "extraction_rules": [
+        {
+          "id": 1,
+          "field": "hidden",
+          "comparison_operator": "regex-delete-row",
+          "comparison_value": "^(true|True)$",
+          "replacement_value": ""
+        },
+        {
+          "id": 2,
+          "field": "role",
+          "comparison_operator": "regex-delete-row",
+          "comparison_value": "^(system|tool)$",
+          "replacement_value": ""
+        },
+        {
+          "id": 3,
+          "field": "text",
+          "comparison_operator": "regex-replace-match",
+          "comparison_value": "[\\w.+-]+@[\\w-]+(\\.[\\w-]+)+",
+          "replacement_value": "_email_removed_"
+        }
+      ],
+      "is_backup": false,
+      "backup_ids": []
+    }
+  ],
+  "project": {
+    "url_id": "8MpkNX34",
+    "slug": "chatgpt-demo",
+    "name": "ChatGPT donation - prototype",
+    "date_created": "2026-09-26T18:12:44.565675-04:00",
+    "active": true,
+    "contact_information": "[things to be filled: principal investigator name, affiliation, address, e-mail, phone]",
+    "data_protection_statement": "[things to be filled: data protection statement - purpose of collection, storage location, retention period, who has access, IRB protocol number]",
+    "url_parameter_enabled": true,
+    "expected_url_parameters": "pid"
+  },
+  "metadata": {
+    "n_blueprints": 1,
+    "n_participants": 2
+  }
+}

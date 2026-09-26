@@ -49,9 +49,11 @@
         </ol>
         <p class="demo-muted">Researcher side: DDM's own researcher interface for this project, as a read-only snapshot
           with two synthetic participants. Settings, extraction rules and questionnaire can be opened but not saved; the
-          two Data Center downloads work.</p>
+          two Data Center downloads work. "DDM back end" shows what DDM stores (encrypted) and what a researcher
+          downloads, in the interface and through its API.</p>
         <p class="demo-actions"><a class="demo-btn" href="ddm/">Open the DDM demo</a>
-          <a class="demo-btn secondary" href="ddm-admin/projects/index.html">DDM researcher side</a></p>
+          <a class="demo-btn secondary" href="ddm-admin/projects/index.html">DDM researcher side</a>
+          <a class="demo-btn secondary" href="ddm-backend/">DDM back end</a></p>
       </div>
     </div>
 
@@ -60,7 +62,7 @@
       <table>
         <tr><th></th><th>This demo</th><th>A real deployment</th></tr>
         <tr><td>Clicking "donate" / "share"</td><td>The data is kept in this tab and shown on the last page, with a download button</td><td>The remaining rows are sent to the study's server (Port: to Next; DDM: stored encrypted in its database)</td></tr>
-        <tr><td>Researcher side</td><td>DDM: a read-only snapshot of its researcher interface. Port: not included (it comes from Eyra's Next platform)</td><td>Login, study set-up, data download, link to the survey through the participant ID</td></tr>
+        <tr><td>Researcher side</td><td>DDM: a read-only snapshot of its researcher interface, and a page with what its database stores and what researchers download. Port: not included (it comes from Eyra's Next platform)</td><td>Login, study set-up, data download, link to the survey through the participant ID</td></tr>
         <tr><td>Participant ID</td><td>Add <code>?pid=ABC123</code> to the Port or DDM address to see it passed through</td><td>Passed from the survey or panel link in the same way</td></tr>
         <tr><td>Texts</td><td>Placeholders</td><td>Consent, instructions and debriefing approved by the IRB</td></tr>
       </table>
